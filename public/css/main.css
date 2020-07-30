@@ -7,11 +7,23 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: aqua;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .flex {
   display: flex;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
   align-items: center;
 }
 
@@ -26,6 +38,7 @@ body {
 header {
   background-color: #FFF;
   height: 70px;
+  box-shadow: 5px 10px;
 }
 
 .sent-logo {
@@ -55,4 +68,50 @@ nav {
 
 nav a {
   text-decoration: none;
+  color: #707070;
+}
+
+main img {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.container h1 {
+  font-size: 3rem;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.container h2 {
+  font-size: 2.6rem;
+  color: #FFF;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.search-bar {
+  position: absolute;
+  width: 50%;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color:#FFF;
+  border-radius: 50px;
+  padding: .5em 1em;
+}
+
+.search-bar label {
+  display: block;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
 }

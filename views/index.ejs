@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= pageTitle %></title>
-  <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-  <%- include('./includes/header.ejs') %>
-  <!-- <img src="https://images.unsplash.com/photo-1535478372499-9d1e5130bd92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2002&q=80" alt="Austin, TX" height="500"> -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include('./includes/header.ejs') %>
+    <main class="flex">
+      <!-- Hero Section -->
+      <div class="container">
+        <img src="/assets/austin_tx.jpg" alt="Austin, TX" />
+        <h1>Connecting Texas.</h1>
+        <h2 class="center-text">
+          Discover cross state travelers in your area to deliver packages.
+        </h2>
+        <div class="search-bar flex space-between">
+          <div>
+            <label for="from-address">From</label>
+            <input type="text" id="from-address" spellcheck="false" placeholder="City, Zip Code, or Address"/>
+          </div>
+          <div>
+            <label for="to-address">To</label>
+            <input type="text" id="to-address" spellcheck="false" placeholder="City, Zip Code, or Address"/>
+          </div>
+          <div>
+            <label for="delivery-date">Date</label>
+            <input type="date" id="delivery-date" spellcheck="false"/>
+          </div>
+          <button>Search</button>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
