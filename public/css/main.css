@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  font-family: 'Montserrat', sans-serif;
   background-color: aqua;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+header {
+  background-color: #FFF;
+  height: 70px;
+}
+
+.sent-logo {
+  margin-left: 1em;
+}
+
+.headline {
+  margin-left: .5em;
+}
+
+.headline h1 {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.headline h4 {
+  font-weight: 500;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav {
+  width: 30%;
+}
+
+nav a {
+  text-decoration: none;
 }
