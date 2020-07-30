@@ -4,8 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order</title>
+    <link rel="stylesheet" href="./css/order.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1>Order Screen</h1>
+    <header>
+      <%- include('./includes/header'); %>
+    </header>
+    <section id="carrier-profile-form">
+      <div id="carrier-profile">
+        <div class="carrier-img">
+          <!--dynamic image loading here ?-->
+          <img src="./assets/imgs/sent-team.png" alt="carrier image" />
+        </div>
+        <div id="name-price">
+          <div id="carrier-name-desc">
+            <h2 class="carrier-name">
+              <%= carrierName %>
+            </h2>
+            <p class="carrier-desc">
+              <%= carrierDesc %>
+            </p>
+          </div>
+          <div id="carrier-price">
+            <h2 class="price">
+              <%= carrierPrice %>
+            </h2>
+          </div>
+        </div>
+        <div id="city-info">
+          <div class="from-city city">
+            <h3>
+              <%= fromCity %>
+            </h3>
+            <h4 class="time">
+              <%= leaveTime %>
+            </h4>
+          </div>
+          <img
+            id="long-arrow-svg"
+            src="./assets/icons/long-arrow.svg"
+            alt="Long Arrow"
+          />
+          <div class="to-city city">
+            <h3>
+              <%= toCity %>
+            </h3>
+            <h4 class="time">
+              <%=leaveDate %>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div id="send-form">
+        <form action="/order" method="post">
+          <div class="form-package-title">
+            <label for="package-title">Package Title:</label>
+            <input type="text" name="package-title" id="package-title" />
+          </div>
+          <div class="form-package-desc">
+            <label for="package-desc">Pacakge Description:</label>
+            <input type="text" name="package-desc" id="package-desc" />
+          </div>
+          <div class="form-delivery-notes">
+            <label for="package-notes">Delivery Notes:</label>
+            <input type="text" name="package-notes" id="package-notes" />
+          </div>
+          <div class="button">
+            <a href="#">Submit Order</a>
+          </div>
+        </form>
+      </div>
+    </section>
   </body>
+  <script src="./js/submitOrder.js"></script>
 </html>

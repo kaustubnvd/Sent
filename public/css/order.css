@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carrier-img img {
+  object-fit: cover;
+  object-position: 50% 50%;
+
+  width: 45vw;
+  height: 60vh;
+  border-radius: 1rem;
+}
+
+#carrier-profile-form {
+  display: flex;
+}
+
+#carrier-profile {
+  padding: 1.5rem 0 0 1.5rem;
+}
+
+#name-price {
+  display: flex;
+  width: 45vw;
+  margin-top: 1rem;
+}
+
+.carrier-name {
+  font-size: 2rem;
+}
+
+#carrier-price {
+  margin-left: 33%;
+  font-size: 2rem;
+  color: #1c5d99;
+}
+
+.carrier-desc {
+  width: max-content;
+  font-size: 1.25em;
+}
+
+#long-arrow-svg {
+  width: 5rem;
+  height: 2.5em;
+}
+
+#city-info {
+  display: flex;
+  margin-top: 2rem;
+  width: 45vw;
+  justify-content: space-between;
+}
+
+.from-city {
+  margin-right: 2rem;
+}
+.to-city {
+  margin-left: 2rem;
+}
+
+.city h3 {
+  font-size: 2rem;
+}
+
+.city .time {
+  font-size: 1.5rem;
+}
+
+.time {
+  color: #5e5e5e;
+}
+
+#send-form {
+  margin: 1.5rem 3rem;
+}
+
+#send-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 45vw;
+  border-radius: 15px;
+  outline: none;
+  text-align: left;
+  padding: 5px;
+  vertical-align: text-top;
+}
+
+#package-title {
+  margin-top: 1rem;
+  height: 3vh;
+}
+
+.form-package-desc {
+  margin-top: 1rem;
+}
+
+#package-desc {
+  margin-top: 1rem;
+  height: 15vh;
+}
+
+.form-delivery-notes {
+  margin-top: 1rem;
+}
+
+#package-notes {
+  margin-top: 1rem;
+  height: 25vh;
+}
+
+a {
+  background-color: #1c5d99;
+  color: #ffffff;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: none;
+  width: 6rem;
+  border-radius: 10px;
+  margin: 2rem 35%;
+}
+
+a:hover {
+  background-color: #ffffff;
+  color: #1c5d99;
+  transition: 0.4s;
+  border: #1c5d99 3px solid;
+}
+
+@media (max-width: 1080px) {
+  #name-price {
+    flex-direction: column;
+  }
+
+  .price {
+    margin-top: 1rem;
+  }
+
+  #carrier-profile-form {
+    flex-direction: column;
+  }
+
+  #carrier-price {
+    margin-left: 0;
+  }
+  .carrier-img img {
+    width: 90vw;
+  }
+  #name-price {
+    width: 90vw;
+  }
+  #city-info {
+    width: 90vw;
+  }
+
+  input {
+    width: 90vw;
+  }
+
+  a {
+    margin: 2rem 42.5%;
+  }
+}
