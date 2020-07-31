@@ -164,3 +164,19 @@ main img {
 .connect-step h3 {
   font-size: 1.5rem;
 }
+
+.featured {
+  margin: 2em 0em 8em 0em;
+}
+
+.featured h2 {
+  margin: 1.5em 0em;
+}
+
+.space-left {
+  margin-left: 1em;
+}
+
+.space-right {
+  margin-right: 1em;
+}
