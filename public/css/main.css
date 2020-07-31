@@ -9,6 +9,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .btn {
   border: none;
   outline: none;
@@ -179,4 +183,28 @@ main img {
 
 .space-right {
   margin-right: 1em;
+}
+
+footer {
+  height: 100px;
+  background-color: #2b6ca3;
+  color: #fff;
+  font-weight: 300;
+}
+
+.contact-info a {
+  color: #fff;
+}
+
+.contact-info a:hover {
+  color: #fff;
+  opacity: 60%; 
+}
+
+.social-links {
+  width: 15%;
+}
+
+.social-links img:hover {
+  opacity: 60%;
 }
