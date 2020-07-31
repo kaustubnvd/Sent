@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= pageTitle %></title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico"/>
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
     <script async src="https://use.fontawesome.com/94c8d2cf59.js"></script>
+    <script defer src="/js/script.js"></script>
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=apiKey%>&libraries=places&callback=autoComplete"></script>
   </head>
   <body>
     <!-- Header -->
@@ -19,32 +21,38 @@
         <h2 class="center-text">
           Discover cross city travelers in your area to deliver packages.
         </h2>
-        <div class="search-bar flex space-between">
-          <div>
-            <label for="from-address">From</label>
-            <input
-              type="text"
-              id="from-address"
-              spellcheck="false"
-              placeholder="City, Zip Code, or Address"
-            />
-          </div>
-          <div>
-            <label for="to-address">To</label>
-            <input
-              type="text"
-              id="to-address"
-              spellcheck="false"
-              placeholder="City, Zip Code, or Address"
-            />
-          </div>
-          <div>
-            <label for="delivery-date">Date</label>
-            <input type="date" id="delivery-date" spellcheck="false" />
-          </div>
-          <button class="btn">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+        <div>
+          <form class="search-bar flex space-between" action="/search" method="GET">
+            <div class="search-control">
+              <label for="from-address">From</label>
+              <input
+                type="text"
+                id="from-address"
+                name="from"
+                spellcheck="false"
+                placeholder="City, Zip Code, or Address"
+                required
+              />
+            </div>
+            <div class="search-control">
+              <label for="to-address">To</label>
+              <input
+                type="text"
+                id="to-address"
+                name="to"
+                spellcheck="false"
+                placeholder="City, Zip Code, or Address"
+                required
+              />
+            </div>
+            <div>
+              <label for="delivery-date">Date</label>
+              <input type="date" id="delivery-date" name="date" spellcheck="false" required/>
+            </div>
+            <button type="submit" class="btn">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
         </div>
       </div>
     </main>
@@ -64,14 +72,16 @@
           <i class="fa fa-car fa-3x" aria-hidden="true"></i>
           <h3>Pick a Carrier Traveling Across Cities</h3>
           <p>
-            Discover someone that is traveling between cities in Texas who is willing to deliver your package
+            Discover someone that is traveling between cities in Texas who is
+            willing to deliver your package
           </p>
         </div>
         <div class="connect-step flex flex-column space-evenly">
           <i class="fa fa-paper-plane fa-3x" aria-hidden="true"></i>
           <h3>Connect and Send Your Package</h3>
           <p>
-            Get connected with them by phone or email and have your package <strong>sent</strong>. It works like magic
+            Get connected with them by phone or email and have your package
+            <strong>sent</strong>. It works like magic
           </p>
         </div>
       </div>
@@ -79,17 +89,44 @@
     <section class="featured">
       <h2 class="center-text">As Featured On</h2>
       <div class="flex flex-center">
-        <img class="space-right" src="/assets/images/sxsw_feature.jpg" alt="South By Southwest" width="300">
-        <a href="https://thedailytexan.com/2020/03/09/ut-student-business-offers-affordable-shipping" target="blank">
-          <img src="/assets/images/dt_feature.jpg" alt="The Daily Texan" width="300">
+        <img
+          class="space-right"
+          src="/assets/images/sxsw_feature.jpg"
+          alt="South By Southwest"
+          width="300"
+        />
+        <a
+          href="https://thedailytexan.com/2020/03/09/ut-student-business-offers-affordable-shipping"
+          target="blank"
+        >
+          <img
+            src="/assets/images/dt_feature.jpg"
+            alt="The Daily Texan"
+            width="300"
+          />
         </a>
-        <img class="space-left" src="/assets/images/tpa_feature.png" alt="Texas Parents Association" width="300">
+        <img
+          class="space-left"
+          src="/assets/images/tpa_feature.png"
+          alt="Texas Parents Association"
+          width="300"
+        />
       </div>
       <div class="flex flex-center">
         <a href="https://youtu.be/qiqhjoy_0pk?t=5545" target="blank">
-           <img class="space-right" src="/assets/images/lsl_feature.jpg" alt="Longhorn Startup Lab" width="300">
+          <img
+            class="space-right"
+            src="/assets/images/lsl_feature.jpg"
+            alt="Longhorn Startup Lab"
+            width="300"
+          />
         </a>
-        <img class="space-left" src="/assets/images/lea_feature.png" alt="Longhorn Entrepreneurship Agency" width="300">
+        <img
+          class="space-left"
+          src="/assets/images/lea_feature.png"
+          alt="Longhorn Entrepreneurship Agency"
+          width="300"
+        />
       </div>
     </section>
     <%- include('./includes/footer.ejs') %>
