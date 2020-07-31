@@ -9,13 +9,18 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .center-text {
   text-align: center;
 }
 
 .flex {
   display: flex;
-  align-items: center;
 }
 
 .flex-column {
@@ -23,12 +28,16 @@ body {
 }
 
 .flex-center {
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .space-between {
   justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
 }
 
 .space-evenly {
@@ -36,7 +45,7 @@ body {
 }
 
 header {
-  background-color: #FFF;
+  background-color: #fff;
   height: 70px;
   box-shadow: 5px 10px;
 }
@@ -46,7 +55,7 @@ header {
 }
 
 .headline {
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .headline h1 {
@@ -89,7 +98,7 @@ main img {
 
 .container h2 {
   font-size: 2.6rem;
-  color: #FFF;
+  color: #fff;
   position: absolute;
   top: 47%;
   left: 50%;
@@ -102,9 +111,9 @@ main img {
   top: 75%;
   left: 50%;
   transform: translate(-50%, 0);
-  background-color:#FFF;
+  background-color: #fff;
   border-radius: 50px;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
 }
 
 .search-bar label {
@@ -114,4 +123,44 @@ main img {
 .search-bar input {
   border: none;
   outline: none;
+}
+
+.search-bar button {
+  padding: 1em 1.2em;
+  border-radius: 50%;
+  background-color: #169bd7;
+}
+
+.search-bar button:hover {
+  background-color: #148dc5;
+}
+
+.search-bar button:active {
+  background-color: #117cad;
+}
+
+.search-bar .fa-search {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.how-it-works {
+  padding-top: 2em;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+}
+
+.connect-steps {
+  margin: 2em 0em;
+}
+
+.connect-step {
+  width: 20%;
+  height: 200px;
+}
+
+.connect-step h3 {
+  font-size: 1.5rem;
 }
