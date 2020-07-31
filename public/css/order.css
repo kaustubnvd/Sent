@@ -87,13 +87,16 @@ input {
   border-radius: 15px;
   outline: none;
   text-align: left;
-  padding: 5px;
+  padding-bottom: 5px;
+  /* padding-top: 5px; */
   vertical-align: text-top;
 }
 
 #package-title {
   margin-top: 1rem;
-  height: 3vh;
+  padding: 5px 5px 5px 7px;
+  background-color: #ebebeb;
+  border: none;
 }
 
 .form-package-desc {
@@ -102,7 +105,9 @@ input {
 
 #package-desc {
   margin-top: 1rem;
-  height: 15vh;
+  padding: 5px 5px 15vh 7px;
+  background-color: #ebebeb;
+  border: none;
 }
 
 .form-delivery-notes {
@@ -111,7 +116,16 @@ input {
 
 #package-notes {
   margin-top: 1rem;
-  height: 25vh;
+  padding: 5px 5px 25vh 7px;
+  background-color: #ebebeb;
+  border: none;
+}
+
+.submit-order {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 900;
+  color: #1c5d99;
 }
 
 a {
@@ -132,7 +146,7 @@ a:hover {
   border: #1c5d99 3px solid;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1150px) {
   #name-price {
     flex-direction: column;
   }

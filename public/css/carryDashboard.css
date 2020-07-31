@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  background-color: #1c5d99;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 7px 17px;
+  border: #1c5d99 solid 3px;
+}
+
+a:hover {
+  background-color: #ffffff;
+  color: #1c5d99;
+  transition: 0.3s;
+}
+
+#photo-head {
+  display: flex;
+  align-items: center;
+  background-color: #1c5d99;
+}
+
+#photo-head img {
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  margin: 2rem 3.5rem 2rem 20vw;
+}
+
+#carrier-name {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 2.5em;
+}
+
+#current-trip-header {
+  padding: 2rem 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+#current-trip-header div {
+  display: flex;
+}
+
+#current-trip-header h2 {
+  margin-right: 13px;
+}
+
+#current-trip-header i {
+  font-size: 1.5rem;
+}
+
+#current-trip-header a {
+  margin-right: 3rem;
+}
+
+#trip-info-header {
+  display: flex;
+  padding: 7px 15px;
+  background-color: #169bd7;
+  width: max-content;
+  border-radius: 20px 0 20px 0;
+  color: #ffffff;
+}
+
+#trip-spacer {
+  width: 24vw;
+}
+
+#trip-info-header {
+  font-size: 1.1em;
+}
+
+#long-arrow-svg {
+  width: 5rem;
+  height: 1.5em;
+}
+
+.fa-long-arrow-alt-right {
+  font-size: 1.2em;
+  padding: 0 2rem;
+}
+
+#current-trip-body {
+  background-color: #ebebeb;
+  margin: 1rem 20vw;
+  border-radius: 20px;
+  display: flex;
+  padding-right: 15px;
+}
+
+.flex {
+  display: flex;
+  margin: 20px 0 0 20px;
+}
+
+.flex i {
+  margin-right: 13px;
+}
+.trip-price {
+  padding-bottom: 15px;
+}
+
+#trip-offer {
+  padding: 0.3rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-title {
+  text-align: center;
+  padding-left: 2rem;
+}
+
+#sender-package {
+  object-fit: cover;
+  width: 12rem;
+  height: 7rem;
+  border-radius: 15px;
+  margin-right: 1rem;
+}
+
+.top-spacing {
+  margin-top: 5px;
+}
+
+.right-spacing {
+  margin-right: 5px;
+}
+
+.margin-bot {
+  margin-bottom: 5px;
+}
+
+.previous-trip-header {
+  margin-left: 20vw;
+}
+
+.previous-trip-route {
+  text-align: center;
+  width: 10rem;
+}
+
+#previous-trip {
+  margin: 1rem 20vw;
+  background-color: #ebebeb;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+}
+
+.prevtrip-margin-left {
+  margin-left: 4rem;
+}
+
+.bot-margin {
+  margin: 0 0 1rem 0;
+}
+
+/* .shadow-trip-route {
+  width: 5rem;
+} */
+
+@media (max-width: 1100px) {
+  #current-trip-body {
+    display: block;
+  }
+}

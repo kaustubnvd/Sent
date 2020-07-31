@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carry Dashboard</title>
+    <link rel="stylesheet" href="./css/carryDashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('./includes/header'); -%>
+    <section id="photo-head">
+      <img src="./assets/imgs/sent-team.png" alt="Carrier Image" />
+      <h1 id="carrier-name"><%= carrierName %></h1>
+    </section>
+    <section id="current-trip">
+      <div id="current-trip-header">
+        <div>
+          <h2>Current Trip</h2>
+          <i class="fas fa-edit"></i>
+        </div>
+        <a href="#">New Trip</a>
+      </div>
+      <div id="current-trip-body">
+        <div id="trip-info">
+          <div id="trip-spacer">
+            <div id="trip-info-header">
+              <p><%= fromCity %></p>
+              <i class="fas fa-long-arrow-alt-right"></i>
+              <p><%= toCity %></p>
+            </div>
+          </div>
+          <div id="trip-info-details">
+            <div class="trip-date flex">
+              <i class="fas fa-calendar-alt"></i>
+              <p><%=tripDate%></p>
+            </div>
+            <div class="trip-time flex">
+              <i class="fas fa-clock"></i>
+              <p><%=tripTime%></p>
+            </div>
+            <div class="trip-size flex">
+              <i class="fas fa-ruler"></i>
+              <p><%=tripSize%></p>
+            </div>
+            <div class="trip-price flex">
+              <i class="fas fa-tags"></i>
+              <p>$<%=tripPrice%></p>
+            </div>
+          </div>
+        </div>
+        <div id="no-offer" class="hidden">
+          <h2>No Current Offer Accepted</h2>
+          <p>
+            Please keep an eye out for offer in your email <%= carryEmail %>
+          </p>
+        </div>
+        <div id="trip-offer">
+          <h3 class="offer-title">
+            Current Offer - <%=offerName%>
+          </h3>
+          <div class="offer-main flex">
+            <div id="offer-profile">
+              <img
+                id="sender-package"
+                src="./assets/imgs/sent-team.png"
+                alt="Sender Image"
+              />
+              <h4 class="package-name top-spacing">
+                <%= packageName %>
+              </h4>
+              <p class="phone-num top-spacing">
+                <i class="fas fa-phone right-spacing"></i><%= phoneNum %>
+              </p>
+              <p class="email top-spacing margin-bot">
+                <i class="fas fa-envelope right-spacing"></i><%= email %>
+              </p>
+            </div>
+            <div id="offer-body">
+              <p class="full-pacakge-desc">
+                <strong>Package Description-</strong> <%=packageDescription%>
+              </p>
+              <br />
+              <p class="full-delivery-notes margin-bot">
+                <strong>Delivery Notes-</strong> <%=deliveryNotes%>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h2 class="previous-trip-header">Previous Trips</h2>
+    <% for(let trip of prevTrips) { %>
+    <section id="previous-trip" class="flex">
+      <div class="shadow-trip-route">
+        <div class="previous-trip-route">
+          <h3 class="previous-trip-from">
+            <%=trip.prevFrom%>
+          </h3>
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <h3 class="previous-trip-to">
+            <%=trip.prevTo%>
+          </h3>
+        </div>
+      </div>
+      <div class="prev-trip-infofirst prevtrip-margin-left">
+        <p class="prev-date bot-margin">
+          <strong>Date: </strong><%=trip.prevDate%>
+        </p>
+        <p class="prev-time bot-margin">
+          <strong>Time: </strong><%=trip.prevTime%>
+        </p>
+        <p class="prev-size"><strong>Size: </strong><%=trip.prevSize%></p>
+      </div>
+      <div class="prev-trip-infosecond prevtrip-margin-left">
+        <p class="prev-price bot-margin">
+          <strong>Asking Price: </strong>$<%=trip.prevPrice%>
+        </p>
+        <p class="prev-sender bot-margin">
+          <strong>Sender: </strong><%=trip.prevSender%>
+        </p>
+      </div>
+    </section>
+    <% } %>
+  </body>
+</html>
