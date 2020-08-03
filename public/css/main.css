@@ -5,8 +5,15 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 a {
@@ -49,9 +56,12 @@ a {
 }
 
 header {
-  background-color: #fff;
+  background-color: rgb(248, 250, 252);
   height: 70px;
-  box-shadow: 5px 10px;
+}
+
+header a {
+  color: #000;
 }
 
 .sent-logo {
@@ -191,6 +201,7 @@ main img {
 }
 
 footer {
+  margin-top: auto;
   height: 100px;
   background-color: #2b6ca3;
   color: #fff;
@@ -203,7 +214,7 @@ footer {
 
 .contact-info a:hover {
   color: #fff;
-  opacity: 60%; 
+  opacity: 60%;
 }
 
 .social-links {
