@@ -57,7 +57,7 @@ a {
 
 header {
   background-color: rgb(248, 250, 252);
-  height: 70px;
+  height: 75px;
 }
 
 header a {
@@ -94,8 +94,25 @@ nav a {
   color: #707070;
 }
 
+.nav-active {
+  display: block;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px;
+}
+
 main img {
   width: 100%;
+  min-height: 300px;
 }
 
 .container {
@@ -105,7 +122,7 @@ main img {
 .container h1 {
   font-size: 3rem;
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -114,7 +131,7 @@ main img {
   font-size: 2.6rem;
   color: #fff;
   position: absolute;
-  top: 47%;
+  top: 38%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -122,7 +139,7 @@ main img {
 .search-bar {
   position: absolute;
   width: 50%;
-  top: 75%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, 0);
   background-color: #fff;
@@ -188,6 +205,11 @@ main img {
   margin: 2em 0em 8em 0em;
 }
 
+.featured img {
+  min-width: 200px;
+  max-width: 250px;
+}
+
 .featured h2 {
   margin: 1.5em 0em;
 }
@@ -218,9 +240,123 @@ footer {
 }
 
 .social-links {
-  width: 15%;
+  width: 200px;
 }
 
 .social-links img:hover {
   opacity: 60%;
+}
+
+@media (max-width: 1500px) {
+  nav {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1320px) {
+  .container h1 {
+    font-size: 2.5rem;
+  }
+  .container h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+  nav {
+    width: 50%;
+  }
+  .search-bar {
+    width: 70%;
+  }
+}
+
+@media (max-width: 890px) {
+  .container h1 {
+    font-size: 2.2rem;
+    width: 80%;
+    text-align: center;
+  }
+  .container h2 {
+    width: 80%;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 75px;
+    height: 180px;
+    background-color: rgb(248, 250, 252);
+    z-index: 2;
+  }
+
+  nav ul {
+    height: 180px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .hamburger {
+    display: block;
+    margin-right: 3em;
+  }
+
+  .featured {
+    margin: 0em 0em 5em 0em;
+  }
+
+  .featured h2 {
+    margin: 0px;
+  }
+
+  .featured div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured img {
+    margin: 0em 0em 1em 0em;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 2em;
+  }
+  footer div {
+    margin-bottom: 1em;
+  }
+  .connect-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .connect-step {
+    text-align: center;
+    width: 50%;
+  }
+  .search-bar {
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 2rem;
+    width: 100%;
+  }
+  .container h2 {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+  .connect-step {
+    text-align: center;
+    width: 70%;
+  }
 }
