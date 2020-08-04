@@ -173,10 +173,10 @@ submit-order:hover {
   }
 
   input {
-    width: 90vw;
+    width: 95%;
   }
 
-  a {
+  #submit-order {
     margin: 2rem 42.5%;
   }
 }
