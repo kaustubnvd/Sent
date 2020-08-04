@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order</title>
     <link rel="stylesheet" href="./css/order.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -77,11 +78,13 @@
             <input type="text" name="package-notes" id="package-notes" />
           </div>
           <div class="button">
-            <a href="#">Submit Order</a>
+            <a id="submit-order" href="#">Submit Order</a>
           </div>
         </form>
       </div>
     </section>
+     <%- include('./includes/footer'); %>
   </body>
+  <script src="/js/script.js"></script>
   <script src="./js/submitOrder.js"></script>
 </html>

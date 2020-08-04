@@ -1,14 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hidden {
   display: none;
 }
 
-a {
+#current-trip a {
   text-decoration: none;
   background-color: #1c5d99;
   color: #ffffff;
@@ -17,7 +17,7 @@ a {
   border: #1c5d99 solid 3px;
 }
 
-a:hover {
+#current-trip a:hover {
   background-color: #ffffff;
   color: #1c5d99;
   transition: 0.3s;
@@ -100,12 +100,12 @@ a:hover {
   padding-right: 15px;
 }
 
-.flex {
+.flex-margin {
   display: flex;
   margin: 20px 0 0 20px;
 }
 
-.flex i {
+.flex-margin i {
   margin-right: 13px;
 }
 .trip-price {
