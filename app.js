@@ -19,4 +19,4 @@ glob.sync('./routes/*.js').forEach((file) => {
   app.use(require(path.resolve(file)));
 });
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server started in ${process.env.NODE_ENV} mode at http://${process.env.HOST}:${PORT}`));
