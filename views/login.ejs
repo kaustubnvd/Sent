@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Login | Sent.</title>
+  </head>
+  <body>
+    <main class="login">
+      <form action="/login" method="POST">
+        <div class="logo">
+          <img src="./assets/logo/sent_logo.png" alt="" />
+          <div>
+            <h1>Sent.</h1>
+            <h2>Connecting Texas.</h2>
+          </div>
+        </div>
+        <h1 class="login-title">Login now</h1>
+        <div class="form-input">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div class="form-input">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div class="login-btns">
+          <a href="#" type="submit" class="login-btn">Login</a>
+          <a href="#" class="g-btn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
+              alt="G-logo"
+              class="g-logo"
+            />
+          </a>
+        </div>
+      </form>
+      <img
+        class="login-img"
+        src="https://images.unsplash.com/photo-1517940539453-517b8afbe85e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        alt="sent-passenger"
+      />
+    </main>
+    <%- include('./includes/footer.ejs') %>
+  </body>
+</html>
