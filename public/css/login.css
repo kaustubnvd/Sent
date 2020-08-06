@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, Arial;
+}
+:root {
+  --light-sent-color: #169bd7;
+  --dark-sent-color: #1c5d99;
+  --g-login-color: #c9c6db;
+  --input-color: #ebebeb;
+}
+.login form h1 {
+  font-size: 2rem;
+}
+.logo {
+  display: flex;
+  margin-bottom: 2em;
+}
+.logo img {
+  width: 75px;
+  margin-right: 1.5em;
+}
+form .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.3em;
+}
+.form-input input {
+  background-color: var(--input-color);
+  border: 0px solid;
+  border-radius: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  outline: none;
+  margin-top: 0.5em;
+  font-size: 1.05rem;
+}
+
+.g-logo {
+  width: 20px;
+}
+.login {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 4em;
+  margin-top: 6em;
+}
+.login-img {
+  width: 800px;
+}
+.login-btns {
+  display: flex;
+  flex-direction: column;
+}
+.login-btn {
+  text-align: center;
+  text-decoration: none;
+  padding: 0.8em 3em;
+  font-weight: bold;
+  background-color: var(--light-sent-color);
+  color: #fff;
+  border: 0px solid;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 1.3em;
+}
+.login-btn :hover {
+  background-color: var(--dark-sent-color);
+  transition: 0.4s;
+}
+.g-btn {
+  background-color: var(--g-login-color);
+  text-align: center;
+  text-decoration: none;
+  padding: 0.8em 3em;
+  font-weight: bold;
+  color: #fff;
+  border: 0px solid;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 1.3em;
+}
+
+@media (max-width: 1174px) {
+  .login-img {
+    display: none;
+  }
+}
+
+@media (max-width: 330px) {
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  .login-title {
+    text-align: center;
+  }
+}
