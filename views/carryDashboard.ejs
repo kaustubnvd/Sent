@@ -15,86 +15,104 @@
   </head>
   <body>
     <%- include('./includes/header'); -%>
-    <section id="photo-head">
+    <!-- <section id="photo-head">
       <img src="./assets/imgs/sent-team.png" alt="Carrier Image" />
       <h1 id="carrier-name"><%= carrierName %></h1>
-    </section>
-    <section id="current-trip">
-      <div id="current-trip-header">
-        <div>
-          <h2>Current Trip</h2>
-          <i class="fas fa-edit"></i>
+    </section> -->
+    <% if(!locals.offerName && !locals.potentialOffers) {%>
+    <div class="receiver-title">
+      <h1>No Current Offers</h1>
+    </div>
+    <!-- <section id="current-trip"> -->
+    <div class="no-offer">
+      <img
+        src="./assets/images/waiting-undraw.svg"
+        alt="No Current Offers Image"
+      />
+      <p class="no-offer-text">
+        Come back later when you receive more offers
+      </p>
+    </div>
+    <!-- </section> -->
+    <%} else if(locals.potentialOffers) {%> <%for(let i = 0; i <
+    potentialOffers.length; i++) { %>
+    <section class="gray-box">
+      <div id="offer-left">
+        <img src="./assets/images/sent-team.png" alt="Receiver Image" />
+        <div class="package-title margin-top">
+          <h2 class="title"><%=potentialOffers[i].pacakgeTitle%></h2>
+          <h2 class="offer-price">$<%=potentialOffers[i].price%></h2>
         </div>
-        <a href="#">New Trip</a>
       </div>
-      <div id="current-trip-body">
-        <div id="trip-info">
-          <div id="trip-spacer">
-            <div id="trip-info-header">
-              <p><%= fromCity %></p>
-              <i class="fas fa-long-arrow-alt-right"></i>
-              <p><%= toCity %></p>
-            </div>
-          </div>
-          <div id="trip-info-details">
-            <div class="trip-date flex-margin">
-              <i class="fas fa-calendar-alt"></i>
-              <p><%=tripDate%></p>
-            </div>
-            <div class="trip-time flex-margin">
-              <i class="fas fa-clock"></i>
-              <p><%=tripTime%></p>
-            </div>
-            <div class="trip-size flex-margin">
-              <i class="fas fa-ruler"></i>
-              <p><%=tripSize%></p>
-            </div>
-            <div class="trip-price flex-margin">
-              <i class="fas fa-tags"></i>
-              <p>$<%=tripPrice%></p>
-            </div>
-          </div>
-        </div>
-        <div id="no-offer" class="hidden">
-          <h2>No Current Offer Accepted</h2>
-          <p>
-            Please keep an eye out for offer in your email <%= carryEmail %>
-          </p>
-        </div>
-        <div id="trip-offer">
-          <h3 class="offer-title">
-            Current Offer - <%=offerName%>
-          </h3>
-          <div class="offer-main flex-margin">
-            <div id="offer-profile">
-              <img
-                id="sender-package"
-                src="./assets/imgs/sent-team.png"
-                alt="Sender Image"
-              />
-              <h4 class="package-name top-spacing">
-                <%= packageName %>
-              </h4>
-              <p class="phone-num top-spacing">
-                <i class="fas fa-phone right-spacing"></i><%= phoneNum %>
-              </p>
-              <p class="email top-spacing margin-bot">
-                <i class="fas fa-envelope right-spacing"></i><%= email %>
-              </p>
-            </div>
-            <div id="offer-body">
-              <p class="full-pacakge-desc">
-                <strong>Package Description-</strong> <%=packageDescription%>
-              </p>
-              <br />
-              <p class="full-delivery-notes margin-bot">
-                <strong>Delivery Notes-</strong> <%=deliveryNotes%>
-              </p>
-            </div>
-          </div>
+      <div id="offer-right">
+        <h4 class="package-description margin-bot">
+          Package Details
+        </h4>
+        <p class="package-information margin-bot">
+          <%=potentialOffers[i].packageDetail%>
+        </p>
+        <h4 class="package-description margin-bot">
+          Delivery Notes
+        </h4>
+        <p class="package-information margin-bot">
+          <%=potentialOffers[i].deliveryNotes%>
+        </p>
+        <div class="acceptance-btn">
+          <a class="button accept" href="#">Accept</a>
+          <a class="button decline" href="#">Decline</a>
         </div>
       </div>
     </section>
+    <% } %> <% } else { %>
+    <div class="receiver-title">
+      <h1>Current Offer - <%=offerName%></h1>
+    </div>
+    <section class="gray-box">
+      <div id="offer-left">
+        <img src="./assets/images/sent-team.png" alt="Receiver Image" />
+        <div id="title-cost" class="flex">
+          <h3 class="package-title package-description"><%=packageName%></h3>
+          <h3 class="package-cost">$<%=tripPrice%></h3>
+        </div>
+        <div id="trip-locations" class="flex">
+          <div class="trip-starting">
+            <p class="city"><%=fromCity%></p>
+            <p class="trip-time small-text"><%=tripTime%></p>
+          </div>
+          <i class="fas fa-long-arrow-alt-right"></i>
+          <div class="trip-ending">
+            <p class="city"><%=toCity%></p>
+            <p class="trip-time small-text"><%=tripDate%></p>
+          </div>
+        </div>
+      </div>
+      <div id="offer-right">
+        <h4 class="package-description margin-bot">
+          Package Details
+        </h4>
+        <p class="package-information margin-bot">
+          <%=packageDescription%>
+        </p>
+        <h4 class="package-description margin-bot">
+          Delivery Notes
+        </h4>
+        <p class="package-information margin-bot">
+          <%=deliveryNotes%>
+        </p>
+        <h4 class="package-description margin-bot">
+          Contact Information
+        </h4>
+        <div class="phone-num flex margin-bot">
+          <i class="fas fa-phone"></i>
+          <p id="full-number" class="margin-left"><%=phoneNum%></p>
+        </div>
+        <div class="email flex">
+          <i class="fas fa-envelope-open-text"></i>
+          <p id="email" class="margin-left"><%=carryEmail%></p>
+        </div>
+      </div>
+    </section>
+    <%}%>
     <h2 class="previous-trip-header">Previous Trips</h2>
     <% for(let trip of prevTrips) { %>
     <section id="previous-trip" class="flex-margin">
@@ -104,31 +122,34 @@
             <%=trip.prevFrom%>
           </h3>
           <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-right hidden"></i>
           <h3 class="previous-trip-to">
             <%=trip.prevTo%>
           </h3>
         </div>
       </div>
-      <div class="prev-trip-infofirst prevtrip-margin-left">
-        <p class="prev-date bot-margin">
-          <strong>Date: </strong><%=trip.prevDate%>
-        </p>
-        <p class="prev-time bot-margin">
-          <strong>Time: </strong><%=trip.prevTime%>
-        </p>
-        <p class="prev-size"><strong>Size: </strong><%=trip.prevSize%></p>
-      </div>
-      <div class="prev-trip-infosecond prevtrip-margin-left">
-        <p class="prev-price bot-margin">
-          <strong>Asking Price: </strong>$<%=trip.prevPrice%>
-        </p>
-        <p class="prev-sender bot-margin">
-          <strong>Sender: </strong><%=trip.prevSender%>
-        </p>
+      <div class="flex">
+        <div class="prev-trip-infofirst prevtrip-margin-left">
+          <p class="prev-date bot-margin">
+            <strong>Date: </strong><%=trip.prevDate%>
+          </p>
+          <p class="prev-time bot-margin">
+            <strong>Time: </strong><%=trip.prevTime%>
+          </p>
+          <p class="prev-size"><strong>Size: </strong><%=trip.prevSize%></p>
+        </div>
+        <div class="prev-trip-infosecond prevtrip-margin-left">
+          <p class="prev-price bot-margin">
+            <strong>Asking Price: </strong>$<%=trip.prevPrice%>
+          </p>
+          <p class="prev-sender bot-margin">
+            <strong>Sender: </strong><%=trip.prevSender%>
+          </p>
+        </div>
       </div>
     </section>
-    <% } %>
-    <%- include('./includes/footer'); %>
+    <% } %> <%- include('./includes/footer'); %>
   </body>
   <script src="/js/script.js"></script>
+  <script src="/js/carryDashboard.js"></script>
 </html>

@@ -25,6 +25,7 @@
   display: flex;
   width: 45vw;
   margin-top: 1rem;
+  justify-content: space-between;
 }
 
 .carrier-name {
@@ -32,7 +33,7 @@
 }
 
 #carrier-price {
-  margin-left: 33%;
+  text-align: right;
   font-size: 2rem;
   color: #1c5d99;
 }
@@ -121,25 +122,19 @@ input {
   border: none;
 }
 
-.submit-order {
-  text-align: center;
-  font-size: 2em;
-  font-weight: 900;
-  color: #1c5d99;
-}
-
 #submit-order {
   background-color: #1c5d99;
   color: #ffffff;
   padding: 1em 1.5em;
   text-decoration: none;
   text-transform: none;
-  width: 6rem;
+  width: 7rem;
   border-radius: 10px;
-  margin: 2rem 35%;
+  margin: 2rem auto;
+  white-space: nowrap;
 }
 
-submit-order:hover {
+#submit-order:hover {
   background-color: #ffffff;
   color: #1c5d99;
   transition: 0.4s;
@@ -167,6 +162,7 @@ submit-order:hover {
   }
   #name-price {
     width: 90vw;
+    flex-direction: row;
   }
   #city-info {
     width: 90vw;
