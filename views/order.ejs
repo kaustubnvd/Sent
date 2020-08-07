@@ -65,26 +65,50 @@
       <div id="send-form">
         <h1 class="submit-order">Submit Order</h1>
         <form action="/order" method="post">
-          <div class="form-package-title">
+          <div class="form-package-title form-control">
             <label for="package-title">Package Title:</label>
-            <input type="text" name="package-title" id="package-title" />
+            <input
+              required
+              autocomplete="off"
+              type="text"
+              name="package-title"
+              id="package-title"
+              maxlength="40"
+            />
+            <p>Please enter package title</p>
           </div>
-          <div class="form-package-desc">
+          <div class="form-package-desc form-control">
             <label for="package-desc">Package Description:</label>
-            <input type="text" name="package-desc" id="package-desc" />
+            <input
+              autocomplete="off"
+              required
+              type="text"
+              name="package-desc"
+              id="package-desc"
+              maxlength="160"
+            />
+            <p>Please enter package description</p>
           </div>
-          <div class="form-delivery-notes">
+          <div class="form-delivery-notes form-control">
             <label for="package-notes">Delivery Notes:</label>
-            <input type="text" name="package-notes" id="package-notes" />
+            <input
+              autocomplete="off"
+              type="text"
+              name="package-notes"
+              id="package-notes"
+              maxlength="160"
+            />
           </div>
           <div class="button">
-            <a id="submit-order" href="#">Submit Order</a>
+            <!-- <a id="submit-order" href="#">Submit Order</a> -->
+            <button type="submit">Submit Order</button>
           </div>
         </form>
       </div>
     </section>
     <%- include('./includes/footer'); %>
   </body>
+  <script src="/js/validate.js"></script>
   <script src="/js/script.js"></script>
-  <script src="./js/submitOrder.js"></script>
+  <script src="./js/order.js"></script>
 </html>

@@ -2,6 +2,21 @@
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.form-control p {
+  visibility: hidden;
+}
+
+.form-control.error p {
+  color: #ff0000;
+  visibility: visible;
+}
+
+.form-control.error input {
+  border: 2px solid #ff0000;
+  background-color: #ff0000;
 }
 
 .carrier-img img {
@@ -85,19 +100,19 @@
 
 input {
   width: 45vw;
-  border-radius: 15px;
+  border-radius: 5px;
   outline: none;
   text-align: left;
   padding-bottom: 5px;
   /* padding-top: 5px; */
   vertical-align: text-top;
+  border: 2px solid transparent;
 }
 
 #package-title {
   margin-top: 1rem;
-  padding: 5px 5px 5px 7px;
+  padding: 10px 15px;
   background-color: #ebebeb;
-  border: none;
 }
 
 .form-package-desc {
@@ -108,7 +123,6 @@ input {
   margin-top: 1rem;
   padding: 5px 5px 15vh 7px;
   background-color: #ebebeb;
-  border: none;
 }
 
 .form-delivery-notes {
@@ -119,7 +133,6 @@ input {
   margin-top: 1rem;
   padding: 5px 5px 25vh 7px;
   background-color: #ebebeb;
-  border: none;
 }
 
 #submit-order {
