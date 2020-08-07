@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= pageTitle %></title>
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <!-- Favicon, Styles and Scripts for Header and Footer -->
+    <%- include('./includes/head.ejs') %>
     <script async src="https://use.fontawesome.com/94c8d2cf59.js"></script>
-    <script defer src="/js/script.js"></script>
     <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%=apiKey%>&libraries=places&callback=autoComplete"></script>
   </head>
   <body>
     <!-- Header -->
     <%- include('./includes/header.ejs') %>
     <!-- Hero Section -->
-    <main class="flex">
+    <main class="main flex">
       <div class="container">
         <img src="/assets/images/austin_tx.png" alt="Austin, TX" />
         <h1>Connecting Texas.</h1>

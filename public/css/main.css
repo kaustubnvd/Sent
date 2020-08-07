@@ -110,14 +110,14 @@ nav a {
   margin: 5px;
 }
 
-main img {
+.main img {
   width: 100%;
   min-height: 300px;
 }
 
 .container {
   position: relative;
-}
+} 
 
 .container h1 {
   font-size: 3rem;

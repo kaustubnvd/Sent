@@ -15,7 +15,9 @@
 .logo {
   display: flex;
   margin-bottom: 2em;
+  color: #000;
 }
+
 .logo img {
   width: 75px;
   margin-right: 1.5em;
