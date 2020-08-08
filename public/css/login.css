@@ -19,8 +19,9 @@
 .logo img {
   width: 75px;
   margin-right: 1.5em;
+  height: 75px;
 }
-form .form-input {
+.form-input {
   display: flex;
   flex-direction: column;
   margin-top: 1.3em;
@@ -37,7 +38,9 @@ form .form-input {
   margin-top: 0.5em;
   font-size: 1.05rem;
 }
-
+.password-container {
+  margin-top: 3em;
+}
 .g-logo {
   width: 20px;
 }
@@ -49,11 +52,13 @@ form .form-input {
   margin-top: 6em;
 }
 .login-img {
-  width: 800px;
+  max-width: 800px;
+  height: 550px;
 }
 .login-btns {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 .login-btn {
   text-align: center;
@@ -66,6 +71,14 @@ form .form-input {
   border-radius: 20px;
   outline: none;
   margin-top: 1.3em;
+}
+form p {
+  color: var(--dark-sent-color);
+  text-align: center;
+}
+form .switch {
+  text-decoration: underline;
+  color: var(--dark-sent-color);
 }
 .login-btn :hover {
   background-color: var(--dark-sent-color);
