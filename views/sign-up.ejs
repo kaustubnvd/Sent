@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/login.css" />
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Login | Sent.</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Sign Up | Sent.</title>
   </head>
   <body>
     <main class="login">
       <form action="/login" method="POST">
-        <a href="/">
         <div class="logo">
           <img src="./assets/logo/sent_logo.png" alt="" />
           <div>
@@ -18,28 +17,35 @@
             <h2>Connecting Texas.</h2>
           </div>
         </div>
-        </a>
-        <h1 class="login-title">Login now</h1>
+        <h1 class="login-title">Sign Up Now</h1>
         <div class="form-input">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" />
         </div>
         <div class="form-input">
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" />
+          <label for="phone-number">Phone Number:</label>
+          <input type="tel" name="phone-number" id="phone-number" />
         </div>
-        <div class="login-btns">
-          <a href="#" type="submit" class="login-btn">Login</a>
-          <a href="#" class="g-btn">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
-              alt="G-logo"
-              class="g-logo"
+        <div class="password-container">
+          <div class="form-input">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="form-input">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
             />
-          </a>
+          </div>
+        </div>
+
+        <div class="login-btns">
+          <a href="#" type="submit" class="login-btn">Register</a>
         </div>
         <p>
-          Don't have an account? <a class="switch" href="/sign-up">Sign up here.</a>
+          Already have an account? <a class="switch" href="/login">Log in here.</a>
         </p>
       </form>
       <img
