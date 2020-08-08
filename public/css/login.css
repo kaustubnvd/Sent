@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Montserrat, Arial;
+  user-select: none;
 }
 :root {
   --light-sent-color: #169bd7;
@@ -54,6 +55,7 @@
 .login-img {
   max-width: 800px;
   height: 550px;
+  pointer-events: none;
 }
 .login-btns {
   display: flex;
