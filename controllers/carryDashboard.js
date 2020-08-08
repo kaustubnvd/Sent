@@ -7,7 +7,7 @@ exports.getCarryDashboard = (req, res, next) => {
     tripTime: '11:30 AM',
     tripSize: 'Fits in a trunk',
     tripPrice: '23',
-    // offerName: 'Anthony Davis',
+    offerName: 'Anthony Davis',
     packageName: 'Chicken Biryani',
     phoneNum: '214-425-0447',
     email: 'suket.shah@yahoo.com',
@@ -36,26 +36,26 @@ exports.getCarryDashboard = (req, res, next) => {
         prevSender: 'Suket Shah',
       },
     ],
-    potentialOffers: [
-      {
-        name: 'suket',
-        pacakgeTitle: 'Chicken Biryani',
-        price: '21',
-        packageDetail:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-        deliveryNotes:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-      },
-      {
-        name: 'john',
-        pacakgeTitle: 'Veg Biryani',
-        price: '20',
-        packageDetail:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-        deliveryNotes:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-      },
-    ],
+    // potentialOffers: [
+    //   {
+    //     name: 'suket',
+    //     pacakgeTitle: 'Chicken Biryani',
+    //     price: '21',
+    //     packageDetail:
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //     deliveryNotes:
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //   },
+    //   {
+    //     name: 'john',
+    //     pacakgeTitle: 'Veg Biryani',
+    //     price: '20',
+    //     packageDetail:
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //     deliveryNotes:
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //   },
+    // ],
   });
 };
 
