@@ -1,7 +1,7 @@
 let validForm = function (inputs) {
   let valid = true;
   inputs.forEach(({ element, validator = () => true }) => {
-    if (!element.value.trim() || !validator()) {
+    if (!element.value.trim() || !validator(element)) {
       element.parentElement.classList.add('error');
       valid = false;
     } else {

@@ -37,6 +37,7 @@ exports.getCarryDashboard = (req, res, next) => {
       },
     ],
     // potentialOffers: [
+<<<<<<< HEAD
     //   {
     //     name: 'suket',
     //     pacakgeTitle: 'Chicken Biryani',
@@ -55,6 +56,26 @@ exports.getCarryDashboard = (req, res, next) => {
     //     deliveryNotes:
     //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
     //   },
+=======
+    // {
+    //   name: 'suket',
+    //   pacakgeTitle: 'Chicken Biryani',
+    //   price: '21',
+    //   packageDetail:
+    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //   deliveryNotes:
+    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    // },
+    // {
+    //   name: 'john',
+    //   pacakgeTitle: 'Veg Biryani',
+    //   price: '20',
+    //   packageDetail:
+    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    //   deliveryNotes:
+    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
+    // },
+>>>>>>> Add dashboard states
     // ],
   });
 };

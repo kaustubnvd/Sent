@@ -74,31 +74,63 @@
               name="package-title"
               id="package-title"
               maxlength="40"
+              class="gray-box"
             />
-            <p>Please enter package title</p>
+            <small>Please enter package title</small>
           </div>
           <div class="form-package-desc form-control">
             <label for="package-desc">Package Description:</label>
-            <input
-              autocomplete="off"
-              required
-              type="text"
+            <textarea
               name="package-desc"
               id="package-desc"
+              cols="25"
+              rows="7"
+              wrap="soft"
+              required
               maxlength="160"
-            />
-            <p>Please enter package description</p>
+              autocomplete="off"
+              class="gray-box"
+            ></textarea>
+            <small>Please enter package description</small>
           </div>
           <div class="form-delivery-notes form-control">
             <label for="package-notes">Delivery Notes:</label>
-            <input
-              autocomplete="off"
-              type="text"
+            <textarea
               name="package-notes"
               id="package-notes"
+              cols="25"
+              rows="5"
+              wrap="soft"
+              required
               maxlength="160"
-            />
+              autocomplete="off"
+              class="gray-box"
+            ></textarea>
           </div>
+          <!-- <div class="form-email form-control">
+            <label for="package-email">Email: </label>
+            <input
+              type="text"
+              autocomplete="off"
+              name="package-email"
+              id="package-email"
+              maxlength="40"
+              class="gray-box"
+            />
+            <small>Please enter a valid email</small>
+          </div>
+          <div class="form-number form-control">
+            <label for="package-number">Phone Number: </label>
+            <input
+              type="text"
+              autocomplete="off"
+              name="package-number"
+              id="package-number"
+              maxlength="14"
+              class="gray-box"
+            />
+            <small>Please enter valid phone number</small>
+          </div> -->
           <div class="button">
             <!-- <a id="submit-order" href="#">Submit Order</a> -->
             <button type="submit">Submit Order</button>
