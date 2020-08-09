@@ -9,6 +9,14 @@
   display: none;
 }
 
+.blue {
+  color: #1c5d99;
+}
+
+.center {
+  text-align: center;
+}
+
 .flex-margin {
   display: flex;
   margin: 20px 0 0 20px;
@@ -67,6 +75,9 @@
   margin-bottom: 5px;
 }
 
+.more-margin-bot {
+  margin-bottom: 1rem;
+}
 .small-text {
   font-size: 0.75em;
 }
@@ -94,6 +105,13 @@
   background-color: #ebebeb;
   border-radius: 15px;
   padding: 1rem 2rem;
+}
+
+#current-trip {
+  margin: 1rem 20vw;
+  background-color: #ebebeb;
+  border-radius: 15px;
+  padding: 1rem 2rem 2rem 2rem;
 }
 
 .prevtrip-margin-left {
@@ -163,9 +181,57 @@
 .margin-top {
   margin-top: 5px;
 }
-/* .shadow-trip-route {
-  width: 5rem;
+
+.more-margin-top {
+  margin-top: 1.5rem;
+}
+
+/* #previous-trip {
+  
 } */
+
+.fa-long-arrow-alt-right {
+  margin: auto 10px;
+}
+
+#previous-trip h4 {
+  font-size: 1.1em;
+}
+
+#previous-trip h5 {
+  font-weight: 600;
+}
+.prev-sender {
+  position: absolute;
+  margin-left: 25vw;
+}
+.prev-price {
+  position: absolute;
+  margin-left: 50vw;
+}
+
+/* popup css */
+
+.popup-box {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* display: none; */
+}
+
+#popup-wrapper {
+  width: 550px;
+  margin: 50px auto;
+  text-align: left;
+}
+
+#popup {
+  background-color: #fff;
+  padding: 15px;
+}
 
 @media (max-width: 1100px) {
   #offer-left img {
@@ -196,6 +262,15 @@
   .acceptance-btn {
     text-align: center;
   }
+
+  .prev-sender {
+    position: absolute;
+    margin-left: 35vw;
+  }
+  .prev-price {
+    position: absolute;
+    margin-left: 65vw;
+  }
 }
 
 @media (max-width: 800px) {
@@ -215,5 +290,22 @@
   }
   .prevtrip-margin-left {
     margin-left: 0;
+  }
+
+  #previous-trip {
+    flex-direction: column;
+  }
+
+  .prev-sender {
+    position: relative;
+    margin: initial;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .prev-price {
+    position: relative;
+    margin: initial;
+    text-align: center;
+    margin-top: 1rem;
   }
 }

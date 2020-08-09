@@ -15,11 +15,29 @@
   </head>
   <body>
     <%- include('./includes/header'); -%>
-    <!-- <section id="photo-head">
-      <img src="./assets/imgs/sent-team.png" alt="Carrier Image" />
-      <h1 id="carrier-name"><%= carrierName %></h1>
-    </section> -->
-    <% if(!locals.offerName && !locals.potentialOffers) {%>
+
+    <!-- popup code -->
+    <%if(locals.offerName && locals.phoneNum && locals.carryEmail) { %>
+    <div class="popup-box popup-position">
+      <div id="popup-wrapper">
+        <%- include('./includes/popup', { offerName: offerName, phoneNum:
+        phoneNum, carryEmail: carryEmail, }); -%>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- varying dashboard states -->
+    <% if(!locals.fromCity && !locals.toCity) {%>
+
+    <div class="no-offer">
+      <h1 class="center more-margin-top">Start Your Trip</h1>
+      <img src="./assets/images/to-the-moon.svg" alt="Start your trip" />
+      <div class="center button">
+        <a>New Trip <i class="fas fa-plus"></i></a>
+      </div>
+    </div>
+
+    <%} else if(!locals.offerName && !locals.potentialOffers) {%>
     <div class="receiver-title">
       <h1>No Current Offers</h1>
     </div>
@@ -33,9 +51,30 @@
         Come back later when you receive more offers
       </p>
     </div>
+
+    <h2 class="previous-trip-header">Current Trip</h2>
+    <section id="previous-trip" class="flex">
+      <div class="direction-time">
+        <div class="direction flex">
+          <h4><%= fromCity %></h4>
+          <i class="fas fa-long-arrow-alt-right"></i>
+          <h4><%= toCity%></h4>
+        </div>
+
+        <h5><%=tripDate%></h5>
+      </div>
+      <div class="prev-sender">
+        <h4>Max Size</h4>
+        <h5 class="more-margin-bot"><%=tripSize%></h5>
+      </div>
+      <div class="prev-price">
+        <h3 class="blue margin-top">$<%=tripPrice%></h3>
+      </div>
+    </section>
     <!-- </section> -->
-    <%} else if(locals.potentialOffers) {%> <%for(let i = 0; i <
-    potentialOffers.length; i++) { %>
+
+    <%} else if(locals.potentialOffers && !locals.offerName) {%> <%for(let i =
+    0; i < potentialOffers.length; i++) { %>
     <section class="gray-box">
       <div id="offer-left">
         <img src="./assets/images/sent-team.png" alt="Receiver Image" />
@@ -112,11 +151,11 @@
         </div>
       </div>
     </section>
-    <%}%>
+    <%}%> <% if( locals.prevTrips.length > 0) { %>
     <h2 class="previous-trip-header">Previous Trips</h2>
-    <% for(let trip of prevTrips) { %>
-    <section id="previous-trip" class="flex-margin">
-      <div class="shadow-trip-route">
+    <% } %> <% for(let trip of prevTrips) { %>
+    <section id="previous-trip" class="flex">
+      <!-- <div class="shadow-trip-route">
         <div class="previous-trip-route">
           <h3 class="previous-trip-from">
             <%=trip.prevFrom%>
@@ -146,6 +185,22 @@
             <strong>Sender: </strong><%=trip.prevSender%>
           </p>
         </div>
+      </div> -->
+
+      <div class="direction-time">
+        <div class="direction flex">
+          <h4><%= trip.prevFrom %></h4>
+          <i class="fas fa-long-arrow-alt-right"></i>
+          <h4><%=trip.prevTo%></h4>
+        </div>
+        <h5><%=trip.prevDate%></h5>
+      </div>
+      <div class="prev-sender">
+        <h4>Sender</h4>
+        <h5><%=trip.prevSender%></h5>
+      </div>
+      <div class="prev-price">
+        <h3 class="blue margin-top">$<%=trip.prevPrice%></h3>
       </div>
     </section>
     <% } %> <%- include('./includes/footer'); %>

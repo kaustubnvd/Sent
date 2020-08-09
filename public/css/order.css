@@ -5,18 +5,27 @@
   box-sizing: border-box;
 }
 
-.form-control p {
+textarea {
+  resize: none;
+  outline: none;
+  border: transparent;
+}
+
+.form-control small {
   visibility: hidden;
 }
 
-.form-control.error p {
+.form-control.error small {
   color: #ff0000;
   visibility: visible;
 }
 
 .form-control.error input {
   border: 2px solid #ff0000;
-  background-color: #ff0000;
+}
+
+.form-control.error textarea {
+  border: 2px solid #ff0000;
 }
 
 .carrier-img img {
@@ -109,7 +118,7 @@ input {
   border: 2px solid transparent;
 }
 
-#package-title {
+/* #package-title {
   margin-top: 1rem;
   padding: 10px 15px;
   background-color: #ebebeb;
@@ -133,21 +142,42 @@ input {
   margin-top: 1rem;
   padding: 5px 5px 25vh 7px;
   background-color: #ebebeb;
+} */
+
+.gray-box {
+  background-color: #ebebeb;
+  border-radius: 5px;
+  margin: 0.5rem 0 0 0;
+  padding: 5px;
 }
 
-#submit-order {
+.form-package-title {
+  margin-top: 1rem;
+}
+
+#package-desc {
+  height: 15vh;
+}
+
+.form-email {
+  margin-top: 1.25rem;
+}
+
+.button button {
   background-color: #1c5d99;
   color: #ffffff;
   padding: 1em 1.5em;
-  text-decoration: none;
-  text-transform: none;
-  width: 7rem;
-  border-radius: 10px;
+  border: 3px solid transparent;
+  border-radius: 5px;
   margin: 2rem auto;
   white-space: nowrap;
 }
 
-#submit-order:hover {
+.submit-order {
+  text-align: center;
+}
+
+.button button:hover {
   background-color: #ffffff;
   color: #1c5d99;
   transition: 0.4s;
@@ -182,7 +212,7 @@ input {
   }
 
   input {
-    width: 95%;
+    width: 100%;
   }
 
   #submit-order {
