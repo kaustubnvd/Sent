@@ -1,6 +1,8 @@
-<div id="popup">
+<!-- <div id="popup">
+  <div class="close">+</div>
+
   <h1 class="popup-title">
-    🎉Congratulations!
+    Congratulations!
   </h1>
   <p class="acceptance">
     You have successfully matched with <%=offerName%>
@@ -9,13 +11,39 @@
     <h2 class="contact-title">
       Contact Now
     </h2>
-    <div id="popup-phone-number">
+    <div id="popup-phone-number" class="flex">
       <i class="fas fa-phone"></i>
       <p class="margin-left"><%=phoneNum%></p>
     </div>
-    <div id="popup-email">
+    <div id="popup-email" class="flex">
       <i class="fas fa-envelope-open-text"></i>
       <p class="margin-left"><%=carryEmail%></p>
     </div>
   </div>
+</div> -->
+
+<div class="bg-modal">
+  <div class="modal-contents">
+    <div class="close">+</div>
+    <h1 class="popup-title">
+      🎉Congratulations!
+    </h1>
+    <p class="acceptance">
+      You have successfully matched with <%=offerName%>
+    </p>
+    <div class="popup-contact">
+      <h2 class="contact-title">
+        Contact Now
+      </h2>
+      <div id="popup-phone-number" class="flex">
+        <i class="fas fa-phone"></i>
+        <p class="margin-left"><%=phoneNum%></p>
+      </div>
+      <div id="popup-email" class="flex">
+        <i class="fas fa-envelope-open-text"></i>
+        <p class="margin-left"><%=carryEmail%></p>
+      </div>
+    </div>
+  </div>
+  <script src="/js/popupModal.js"></script>
 </div>
