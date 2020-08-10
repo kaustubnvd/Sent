@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Dashboard | Sent.</title>
+    <link rel="stylesheet" href="./css/sendDashboard.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('./includes/header'); -%>
+    <main class="send-dashboard">
+      <!-- no sends state -->
+      <% if(locals.currentSends.length === 0) {%>
+      <div class="no-requests-state">
+        <h1>You haven't requested any carriers yet</h1>
+        <img
+          src="./assets/images/waiting-undraw.svg"
+          alt="No Current Sends Image"
+        />
+        <p>Check out trips being made everyday <a href="/">here.</a></p>
+      </div>
+      <!-- regular state with multiple requests -->
+      <%}else{%>
+      <div class="requests-state">
+        <h1>Current Requests</h1>
+        <% for(let i = 0; i < locals.currentSends.length; i++) { %>
+        <section class="request">
+          <h1>
+            <%=locals.currentSends[i].status%> -
+            <%=locals.currentSends[i].statusDate%>
+          </h1>
+          <div class="content">
+            <div class="carrier-details">
+              <h2>$<%=locals.currentSends[i].carrier.price%></h2>
+              <h2>Carrier: <%=locals.currentSends[i].carrier.name%></h2>
+              <% if(locals.currentSends[i].status === 'Accepted'){ %>
+              <div>
+                <p>
+                  <i class="fa fa-phone fa-flip-horizontal"></i
+                  ><%=locals.currentSends[i].carrier.phoneNum%>
+                </p>
+                <p>
+                  <i class="fa fa-envelope"></i
+                  ><%=locals.currentSends[i].carrier.email%>
+                </p>
+              </div>
+              <% } else { %>
+              <a href="#">Cancel Request</a>
+              <%}%>
+            </div>
+            <div class="package-details">
+              <h2><%=locals.currentSends[i].package.title%></h2>
+              <p><%=locals.currentSends[i].package.desc%></p>
+              <div class="direction-time">
+                <div class="direction flex">
+                  <h4><%= locals.currentSends[i].package.origin %></h4>
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                  <h4><%= locals.currentSends[i].package.dest %></h4>
+                </div>
+                <h5>
+                  <%= locals.currentSends[i].package.date %> @ <%=
+                  locals.currentSends[i].package.time %>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </section>
+        <%}%>
+      </div>
+      <%}%>
+    </main>
+  </body>
+</html>
