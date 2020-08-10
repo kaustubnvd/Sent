@@ -34,11 +34,39 @@
         </a>
       </li>
       <li>
+        <% if(user) { %>
+        <a id="user" href="#">
+          <%= user %>
+        </a>
+        <% } else { %>
         <a href="/login">
           Login
         </a>
+        <% } %>
       </li>
     </ul>
+    <div class="login-container">
+      <ul class="login-panel">
+        <li>
+          <a href="#">
+            My Sends
+          </a>
+        </li>
+        <li>
+          <a href="/carry-dashboard">
+            My Trips
+          </a>
+        </li>
+        <li>
+          <a href="/profile">
+            Profile
+          </a>
+        </li>
+        <li>
+          <button>Logout</button>
+        </li>
+      </ul>
+    </div>
   </nav>
   <div class="hamburger">
     <div></div>
