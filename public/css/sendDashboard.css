@@ -58,3 +58,19 @@
 .request .content {
   display: flex;
 }
+.no-requests-state{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.no-requests-state img{
+    max-width: 500px;
+    margin-top: 1em;
+    margin-bottom: .7em;
+}
+.no-requests-state a{
+    color: var(--light-sent-color);
+    text-decoration: underline;
+}
+
