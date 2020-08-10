@@ -18,13 +18,34 @@
 
     <!-- popup code -->
     <%if(locals.offerName && locals.phoneNum && locals.carryEmail) { %>
-    <div class="popup-box popup-position">
-      <div id="popup-wrapper">
-        <%- include('./includes/popup', { offerName: offerName, phoneNum:
-        phoneNum, carryEmail: carryEmail, }); -%>
+
+    <!-- <%- include('./includes/popup', { offerName: offerName, phoneNum: phoneNum,
+    carryEmail: carryEmail, }); -%> <% } %> 
+    <!--note you have to rerender here because you need updated data-->
+    <div class="bg-modal">
+      <div class="modal-contents">
+        <div class="close">+</div>
+        <h1 class="popup-title">
+          🎉 Congratulations!
+        </h1>
+        <p class="acceptance">
+          You have successfully matched with a carrier
+        </p>
+        <div class="popup-contact">
+          <h2 class="contact-title">
+            Contact Now
+          </h2>
+          <div id="popup-phone-number" class="flex">
+            <i class="fas fa-phone"></i>
+            <p class="margin-left"><%=phoneNum%></p>
+          </div>
+          <div id="popup-email" class="flex">
+            <i class="fas fa-envelope-open-text"></i>
+            <p class="margin-left"><%=carryEmail%></p>
+          </div>
+        </div>
       </div>
     </div>
-    <% } %>
 
     <!-- varying dashboard states -->
     <% if(!locals.fromCity && !locals.toCity) {%>
@@ -97,7 +118,7 @@
           <%=potentialOffers[i].deliveryNotes%>
         </p>
         <div class="acceptance-btn">
-          <a class="button accept" href="#">Accept</a>
+          <a class="button accept" id="modal-button" href="#">Accept</a>
           <a class="button decline" href="#">Decline</a>
         </div>
       </div>
@@ -207,4 +228,5 @@
   </body>
   <script src="/js/script.js"></script>
   <script src="/js/carryDashboard.js"></script>
+  <script src="/js/popupModal.js"></script>
 </html>
