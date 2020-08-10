@@ -6,10 +6,77 @@
     <title>Carrier | Add New Trip</title>
     <!-- Favicon, Styles and Scripts for Header and Footer -->
     <%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/new-trip.css" />
+    <script
+      defer
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=<%=apiKey%>&libraries=places&callback=autoComplete"
+    ></script>
+    <script defer src="/js/validate.js"></script>
+    <script defer src="/js/new-trip.js"></script>
   </head>
   <body>
     <!-- Header -->
     <%- include('./includes/header.ejs') %>
+    <main class="flex flex-center">
+      <section class="new-trip-form">
+        <div class="form-header">
+          <h1>Add New Trip</h1>
+        </div>
+        <form action="/new-trip" method="POST">
+          <div class="form-control">
+            <label for="departure-from">Departure Location</label>
+            <input id="departure-from" name="from" autocomplete="off" />
+            <small>Please enter a valid destination</small>
+          </div>
+          <div class="form-control">
+            <label for="departure-date">Departure Date</label>
+            <input
+              type="date"
+              id="departure-date"
+              name="date"
+              autocomplete="off"
+            />
+            <small>Please enter a valid date</small>
+          </div>
+          <div class="form-control">
+            <label for="departure-to">Destination</label>
+            <input id="departure-to" name="to" autocomplete="off" />
+            <small>Please enter a valid destination</small>
+          </div>
+          <div class="specifics">
+            <div class="form-control">
+              <label for="size"
+                >What size package are you willing to carry?</label
+              >
+              <select name="size" id="size">
+                <option value="">--I can carry anything that: --</option>
+                <option value="bag">Fits in a bag</option>
+                <option value="luggage">Fits in a luggage</option>
+                <option value="car">Fits in a car trunk</option>
+              </select>
+              <small>Please include a package size</small>
+            </div>
+            <div class="form-control">
+              <label for="price"
+                >How much compensation do you require? ($)</label
+              >
+              <input
+                type="number"
+                id="price"
+                name="price"
+                max="200"
+                autocomplete="off"
+              />
+              <small>Please enter a valid price</small>
+            </div>
+          </div>
+          <div class="form-control-btn">
+            <button type="submit">Add Listing</button>
+          </div>
+        </form>
+      </section>
+    </main>
     <!-- Footer -->
     <%- include('./includes/footer.ejs') %>
   </body>

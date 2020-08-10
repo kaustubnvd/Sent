@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+.new-trip-form {
+  background-color: rgb(230, 233, 236) ;
+  margin-top: 1em;
+  padding: 2em;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 550px;
+}
+
+.new-trip-form h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.new-trip-form label {
+  display: block;
+  margin-bottom: .3em;
+}
+
+.new-trip-form input, select {
+  width: 100%;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  padding: .75em .5em;
+}
+
+.new-trip-form .form-control {
+  margin-bottom: .5em;
+}
+
+.new-trip-form .specifics {
+  margin-top: 3em;
+}
+
+.new-trip-form button {
+  border: none;
+  border-radius: 5px;
+  background-color: #169BD7;
+  color: aliceblue;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  margin-top: .5em;
+  padding: .5em 1em;
+  
+}
+
+.form-control small {
+  color: #FF0000;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form-control.error input {
+  border: 2px solid #F00;
+}
+
+
+.form-control-btn {
+  display: flex;
+  justify-content: center;
+}
