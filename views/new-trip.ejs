@@ -7,13 +7,13 @@
     <!-- Favicon, Styles and Scripts for Header and Footer -->
     <%- include('./includes/head.ejs') %>
     <link rel="stylesheet" href="/css/new-trip.css" />
+    <script defer src="/js/validate.js"></script>
+    <script defer src="/js/new-trip.js"></script>
     <script
       defer
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=<%=apiKey%>&libraries=places&callback=autoComplete"
     ></script>
-    <script defer src="/js/validate.js"></script>
-    <script defer src="/js/new-trip.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -67,6 +67,8 @@
                 name="price"
                 max="200"
                 autocomplete="off"
+                oninput="this.value=this.value.slice(0,this.maxLength)"
+                maxlength="2"
               />
               <small>Please enter a valid price</small>
             </div>

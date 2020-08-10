@@ -71,5 +71,11 @@ main svg {
 @media (max-width: 805px) {
   .search-results {
     justify-items: center;
+  } 
+  .no-results {
+    flex-direction: column-reverse;
+  }
+  main svg {
+  width: 80%;
   }
 }
