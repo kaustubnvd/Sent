@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+.profile-cover {
+  width: 100%;
+  height: 150px;
+  background-color: #169bd7
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bio {
+  background-color: rgb(237, 240, 243);
+ border-radius: 4px;
+  width: 20%;
+  height: 410px;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio .profile-main {
+  width: 100%;
+  background-color: rgb(229, 232, 235);
+  text-align: center;
+  padding-bottom: .5em;
+}
+
+.bio h2 {
+  margin-top: .5em;
+}
+
+.bio h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.bio li {
+  list-style: none;
+}
+
+.bio span {
+  font-size: 1.5rem;
+  margin-right: .5em;
+}
+
+.bio .sent {
+  color: #169bd7;
+}
+
+.bio .carried {
+  color: #024bd1;
+}
+
+.bio .earnings {
+  color: #86e76d;
+}
+
+.profile-stats {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.profile-stats li {
+  display: flex;
+  justify-content: space-between;
+  padding: .5em;
+}
+
+.profile-stats h4 {
+  margin-left: 1em;
+  font-weight: 600;
+}
+
+.bio img {
+  width: 150px;
+  height: 150px;
+  margin-top: .5em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-details {
+  margin-top: 1em;
+  width: 50%;
+  height: 410px;
+  background-color: rgb(237, 240, 243);
+}
+
+.profile-details h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1em;
+}
+
+.profile-form {
+  margin-top: 1.5em;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: .5em;
+}
+
+.profile-form input {
+  border: 2px solid transparent;
+  background-color: rgb(248, 250, 252);
+    border-radius: 2px;
+  padding: .75em .5em;
+  width: 100%;
+  outline: none;
+}
+
+.profile-form button {
+  border: none;
+  border-radius: 5px;
+  background-color: #169bd7;
+  color: aliceblue;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  margin-top: 0.5em;
+  padding: 0.5em 3em;
+}
+
+.form-control-btn {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-form .form-control {
+  width: 40%;
+  margin-top: 2em;
+}
+
+.profile-name {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-contact-info {
+  display: flex;
+    justify-content: space-evenly;
+}
+
+@media(max-width: 992px) {
+  .profile-container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bio {
+  width: 80%;
+}
+.profile-details {
+  width: 80%;
+}
+}

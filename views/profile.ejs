@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= user %> | Profile</title>
+    <%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/profile.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include('./includes/header.ejs') %>
+    <div class="profile-cover"></div>
+    <div class="profile-container">
+      <div class="bio">
+        <div class="profile-main">
+          <img
+            src="https://images.unsplash.com/photo-1551825687-f9de1603ed8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            alt="<%=user%>"
+          />
+          <h2><%=user%> Shah</h2>
+          <h3>Suket.shah@utexas.edu</h3>
+        </div>
+
+        <div class="profile-stats">
+          <ul>
+            <li>
+              <h4>Packages Sent</h4>
+              <span class="sent">3</span>
+            </li>
+            <li>
+              <h4>Packages Carried</h4>
+              <span class="carried">12</span>
+            </li>
+            <li>
+              <h4>Total Earnings ($)</h4>
+              <span class="earnings">162</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile-details">
+        <h2>Profile Details</h2>
+        <form class="profile-form" action="/profile">
+          <div class="profile-name">
+            <div class="form-control">
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                name="first-name"
+                value="Suket"
+                id="first-name"
+                spellcheck="false"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-control">
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                name="last-name"
+                value="Shah"
+                id="last-name"
+                spellcheck="false"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="profile-contact-info">
+            <div class="form-control">
+              <label for="email-address">Email Address</label>
+              <input
+                type="email"
+                name="email-address"
+                value="Suket.shah@utexas.edu"
+                id="email-address"
+                spellcheck="false"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-control">
+              <label for="phone-number">Phone Number</label>
+              <input
+                type="tel"
+                name="phone-number"
+                value="469-555-5555"
+                id="phone-number"
+                spellcheck="false"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="form-control-btn">
+            <button>Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('./includes/footer.ejs') %>
+  </body>
+</html>
