@@ -47,6 +47,10 @@
   margin-right: 20%;
 }
 
+#offer-left {
+  width: 100%;
+}
+
 #offer-left img {
   width: 80%;
   height: 13rem;
@@ -252,7 +256,7 @@
   width: 40vw;
   background-color: white;
   text-align: center;
-  padding: 3rem 4rem;
+  padding: 2rem 4rem;
   position: relative;
   border-radius: 4px;
 }
@@ -268,6 +272,10 @@
 
 .acceptance {
   margin-bottom: 1rem;
+}
+
+.contact-title {
+  margin-bottom: 0.5rem;
 }
 
 .close {
