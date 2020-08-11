@@ -5,7 +5,7 @@
 .profile-cover {
   width: 100%;
   height: 150px;
-  background-color: #169bd7
+  background-color: #169bd7;
 }
 
 .profile-container {
@@ -14,8 +14,7 @@
 }
 
 .bio {
-  background-color: rgb(237, 240, 243);
- border-radius: 4px;
+  border-radius: 4px;
   width: 20%;
   height: 410px;
   margin-top: 1em;
@@ -28,11 +27,11 @@
   width: 100%;
   background-color: rgb(229, 232, 235);
   text-align: center;
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
 }
 
 .bio h2 {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .bio h3 {
@@ -46,7 +45,7 @@
 
 .bio span {
   font-size: 1.5rem;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .bio .sent {
@@ -62,14 +61,15 @@
 }
 
 .profile-stats {
-  margin-top: 1em;
+  background-color: rgb(237, 240, 243);
+  padding: 1em 0em;
   width: 100%;
 }
 
 .profile-stats li {
   display: flex;
   justify-content: space-between;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .profile-stats h4 {
@@ -80,7 +80,7 @@
 .bio img {
   width: 150px;
   height: 150px;
-  margin-top: .5em;
+  margin-top: 0.5em;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -104,14 +104,14 @@
 
 .profile-form label {
   display: block;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .profile-form input {
   border: 2px solid transparent;
   background-color: rgb(248, 250, 252);
-    border-radius: 2px;
-  padding: .75em .5em;
+  border-radius: 2px;
+  padding: 0.75em 0.5em;
   width: 100%;
   outline: none;
 }
@@ -149,19 +149,28 @@
 
 .profile-contact-info {
   display: flex;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
-@media(max-width: 992px) {
+@media (max-width: 992px) {
   .profile-container {
-  flex-direction: column;
-  justify-content: center;
-}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.bio {
-  width: 80%;
-}
-.profile-details {
-  width: 80%;
-}
+  .bio {
+    width: 100%;
+    align-items: center;
+  }
+  .bio .profile-main {
+    width: 80%;
+  }
+  .bio .profile-stats {
+    width: 80%;
+  }
+  .profile-details {
+    width: 80%;
+    margin-bottom: 1.5em;
+  }
 }
