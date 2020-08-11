@@ -1,5 +1,6 @@
 exports.getOrderPage = (req, res, next) => {
   res.render('order', {
+    users: 'Avi',
     carrierName: 'Suket Shah',
     carrierDesc: 'Anything that fits in a trunk',
     carrierPrice: '$21',

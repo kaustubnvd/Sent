@@ -259,6 +259,7 @@
   padding: 2rem 4rem;
   position: relative;
   border-radius: 4px;
+  outline: none;
 }
 
 .popup-title {

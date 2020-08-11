@@ -1,5 +1,6 @@
 exports.getCarryDashboard = (req, res, next) => {
   res.render('carryDashboard', {
+    users: 'Suket',
     carrierName: 'Suket Shah',
     fromCity: 'Flower Mound, TX',
     toCity: 'Austin, TX',

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carry Dashboard</title>
-    <link rel="stylesheet" href="./css/main.css" />
+    <%- include('./includes/head'); -%>
     <link rel="stylesheet" href="./css/carryDashboard.css" />
     <link
       rel="stylesheet"
@@ -22,8 +22,9 @@
     <!-- <%- include('./includes/popup', { offerName: offerName, phoneNum: phoneNum,
     carryEmail: carryEmail, }); -%> <% } %> 
     <!--note you have to rerender here because you need updated data-->
+
     <div class="bg-modal">
-      <div class="modal-contents">
+      <div class="modal-contents" tabindex="-1">
         <div class="close">+</div>
         <h1 class="popup-title">
           🎉 Congratulations!
@@ -226,7 +227,7 @@
     </section>
     <% } %> <%- include('./includes/footer'); %>
   </body>
-  <script src="/js/script.js"></script>
+  <!-- <script src="/js/script.js"></script> -->
   <script src="/js/carryDashboard.js"></script>
   <script src="/js/popupModal.js"></script>
 </html>
