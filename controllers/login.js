@@ -1,3 +1,3 @@
 exports.getLoginPage = (req, res, next) => {
-    res.render('login');
-  };
+  res.render('login');
+};
