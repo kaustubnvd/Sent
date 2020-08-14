@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const bcrypt = require('bcryptjs');
 
 module.exports = class User {
   constructor({ firstName, lastName, email, phoneNum, password = '' }) {
@@ -7,13 +8,13 @@ module.exports = class User {
     this.lastName = lastName;
     this.email = email;
     this.phoneNum = phoneNum;
-    this.password = password;
+    this.password = bcrypt.hashSync(password, 12);
   }
 
   async save() {
     try {
       const val = await db.execute(
-        'INSERT INTO users(id_user, first_name, last_name, email, phone, password) VALUES(?, ?, ?, ?, ?, ?)',
+        'INSERT INTO users(id_user, first_name, last_name, email, phone_num, password) VALUES(?, ?, ?, ?, ?, ?)',
         [
           this.id,
           this.firstName,
@@ -26,5 +27,9 @@ module.exports = class User {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  static getUserById(id) {
+    return db.execute('SELECT * FROM users WHERE id_user = ?', [id]);
   }
 };
