@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const glob = require('glob');
+const session = require('express-session');
 
 const path = require('path');
 
@@ -11,6 +12,12 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+app.use(session({
+  secret: 'my secret',
+  resave: false,
+  saveUninitialized: false,
+}));
 
 app.use(express.static(path.resolve('public')));
 app.use(bodyParser.urlencoded({ extended: false }));

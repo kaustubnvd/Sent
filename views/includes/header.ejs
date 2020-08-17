@@ -36,7 +36,7 @@
       <li>
         <% if(locals.user) { %>
         <a id="user" href="#">
-          <%= user %>
+          <%= user.first_name %>
         </a>
         <% } else { %>
         <a href="/login">
@@ -63,7 +63,9 @@
           </a>
         </li>
         <li>
-          <button class="logout-btn">Logout</button>
+          <form method="POST" action="/logout">
+            <button class="logout-btn">Logout</button>
+          </form>
         </li>
       </ul>
     </div>

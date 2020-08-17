@@ -5,6 +5,9 @@ const getFullName = require('../util/name');
 const formatDate = require('../util/date');
 
 exports.getOrderPage = async (req, res, next) => {
+  if (!req.session.user) {
+    res.redirect('/login');
+  }
   const { tripId } = req.params;
   const {
     id_carrier,
