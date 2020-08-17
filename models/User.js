@@ -24,12 +24,14 @@ module.exports = class User {
           this.password,
         ]
       );
+      console.log(val);
     } catch (err) {
       console.log(err);
     }
   }
 
-  static getUserById(id) {
-    return db.execute('SELECT * FROM users WHERE id_user = ?', [id]);
+  static async getUserById(id) {
+    const [users] = await db.execute('SELECT * FROM users WHERE id_user = ?', [id]);
+    return users[0];
   }
 };

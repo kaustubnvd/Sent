@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order</title>
-    <link rel="stylesheet" href="./css/order.css" />
+    <link rel="stylesheet" href="/css/order.css" >
     <%- include('./includes/head'); %>
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
       <div id="carrier-profile">
         <div class="carrier-img">
           <!--dynamic image loading here ?-->
-          <img src="./assets/images/sent-team.png" alt="carrier image" />
+          <img src="/assets/images/sent-team.png" alt="carrier image" />
         </div>
         <div id="name-price">
           <div id="carrier-name-desc">
@@ -29,7 +29,7 @@
               <%= carrierName %>
             </h2>
             <p class="carrier-desc">
-              <%= carrierDesc %>
+              Can carry anything that fits in a <%= carrierDesc %>
             </p>
           </div>
           <div id="carrier-price">
@@ -44,21 +44,18 @@
               <%= fromCity %>
             </h3>
             <h4 class="time">
-              <%= leaveTime %>
+             <%=leaveDate %>
             </h4>
           </div>
           <img
             id="long-arrow-svg"
-            src="./assets/icons/long-arrow.svg"
+            src="/assets/icons/long-arrow.svg"
             alt="Long Arrow"
           />
           <div class="to-city city">
             <h3>
               <%= toCity %>
             </h3>
-            <h4 class="time">
-              <%=leaveDate %>
-            </h4>
           </div>
         </div>
       </div>
@@ -71,7 +68,7 @@
               required
               autocomplete="off"
               type="text"
-              name="package-title"
+              name="packageTitle"
               id="package-title"
               maxlength="40"
               class="gray-box"
@@ -81,7 +78,7 @@
           <div class="form-package-desc form-control">
             <label for="package-desc">Package Description:</label>
             <textarea
-              name="package-desc"
+              name="packageDesc"
               id="package-desc"
               cols="25"
               rows="7"
@@ -96,7 +93,7 @@
           <div class="form-delivery-notes form-control">
             <label for="package-notes">Delivery Notes:</label>
             <textarea
-              name="package-notes"
+              name="packageNotes"
               id="package-notes"
               cols="25"
               rows="5"
@@ -135,11 +132,12 @@
             <!-- <a id="submit-order" href="#">Submit Order</a> -->
             <button type="submit">Submit Order</button>
           </div>
+          <input type="hidden" name="tripId" value="<%=tripId%>">
         </form>
       </div>
     </section>
     <%- include('./includes/footer'); %>
   </body>
   <script src="/js/validate.js"></script>
-  <script src="./js/order.js"></script>
+  <script src="/js/order.js"></script>
 </html>

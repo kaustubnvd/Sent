@@ -160,6 +160,11 @@
   margin: 2rem auto;
   white-space: nowrap;
   border: #1c5d99 1px solid;
+  cursor: pointer;
+}
+
+.button a {
+  color: #fff;
 }
 
 .acceptance-btn {

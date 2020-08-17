@@ -1,11 +1,12 @@
 .search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 0fr));
   grid-gap: 25px;
   width: 90%;
   margin: 0 auto;
   margin-top: 2em;
   margin-bottom: 10em;
+  justify-content: center;
 }
 
 .search-item {
@@ -44,6 +45,10 @@ main h2 {
 
 main svg {
   width: 30%;
+}
+
+.long-arrow {
+  width: 40px;
 }
 
 .no-results {

@@ -1,9 +1,9 @@
 exports.getCarryDashboard = (req, res, next) => {
   res.render('carryDashboard', {
-    users: 'Suket',
-    carrierName: 'Suket Shah',
-    fromCity: 'Flower Mound, TX',
-    toCity: 'Austin, TX',
+    user: 'Suket',
+    // carrierName: 'Suket Shah',
+    // fromCity: 'Flower Mound, TX',
+    // toCity: 'Austin, TX',
     tripDate: 'May 16, 2020',
     tripTime: '11:30 AM',
     tripSize: 'Fits in a trunk',

@@ -2,10 +2,11 @@ const express = require('express');
 
 const router = express.Router();
 
-const { getOrderPage } = require('../controllers/order');
-const { makeOrder } = require('../controllers/makeOrder');
+const { getOrderPage, makeOrder, } = require('../controllers/order');
 
-router.get('/order', getOrderPage);
+// Route Params
+router.get('/order/:tripId', getOrderPage);
+
 router.post('/order', makeOrder);
 
 module.exports = router;
