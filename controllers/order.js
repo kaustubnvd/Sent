@@ -5,9 +5,6 @@ const getFullName = require('../util/name');
 const formatDate = require('../util/date');
 
 exports.getOrderPage = async (req, res, next) => {
-  if (!req.session.user) {
-    res.redirect('/login');
-  }
   const { tripId } = req.params;
   const {
     id_carrier,
@@ -32,6 +29,11 @@ exports.getOrderPage = async (req, res, next) => {
 
 exports.makeOrder = async (req, res, next) => {
   const { packageTitle, packageDesc, packageNotes, tripId } = req.body;
+  const isDuplicate = await Package.isDuplicate(tripId, req.session.user.id_user);
+  const isIdiot= await Package.isIdiot(tripId, req.session.user.id_user);
+  if (isDuplicate || isIdiot) {
+    return res.redirect('/');
+  }
   const package = new Package({
     tripId,
     packageTitle,
@@ -39,7 +41,7 @@ exports.makeOrder = async (req, res, next) => {
     deliveryNotes: packageNotes,
     imageURL:
       'https://images.unsplash.com/photo-1551825687-f9de1603ed8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    senderId: '23',
+    senderId: req.session.user.id_user,
   });
   await package.save();
   return res.redirect('/');

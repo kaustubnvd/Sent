@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= user %> | Profile</title>
+    <title><%=user.first_name%> | Profile</title>
     <%- include('./includes/head.ejs') %>
     <link rel="stylesheet" href="/css/profile.css" />
   </head>
@@ -18,8 +18,8 @@
             src="https://images.unsplash.com/photo-1551825687-f9de1603ed8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
             alt="<%=user%>"
           />
-          <h2><%=user%> Shah</h2>
-          <h3>Suket.shah@utexas.edu</h3>
+          <h2><%=user.first_name%> <%=user.last_name%></h2>
+          <h3><%=user.email%></h3>
         </div>
 
         <div class="profile-stats">
@@ -48,7 +48,7 @@
               <input
                 type="text"
                 name="first-name"
-                value="Suket"
+                value="<%=user.first_name%>"
                 id="first-name"
                 spellcheck="false"
                 autocomplete="off"
@@ -59,7 +59,7 @@
               <input
                 type="text"
                 name="last-name"
-                value="Shah"
+                value="<%=user.last_name%>"
                 id="last-name"
                 spellcheck="false"
                 autocomplete="off"
@@ -72,7 +72,7 @@
               <input
                 type="email"
                 name="email-address"
-                value="Suket.shah@utexas.edu"
+                value="<%=user.email%>"
                 id="email-address"
                 spellcheck="false"
                 autocomplete="off"
@@ -83,7 +83,7 @@
               <input
                 type="tel"
                 name="phone-number"
-                value="469-555-5555"
+                value="<%=user.phone_num%>"
                 id="phone-number"
                 spellcheck="false"
                 autocomplete="off"

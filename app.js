@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const glob = require('glob');
 const session = require('express-session');
+const csrf = require('csurf');
 
 const path = require('path');
 
@@ -19,8 +20,16 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+// app.use(csrf());
+
 app.use(express.static(path.resolve('public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  // res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 glob.sync('./routes/*.js').forEach((file) => {
   app.use(require(path.resolve(file)));

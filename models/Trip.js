@@ -48,14 +48,55 @@ module.exports = class Trip {
       console.log(err);
     }
   }
-  static getTripsSearch({fromCity, fromZip, toCity, toZip, date}) {
+  static getTripsSearch({ fromCity, fromZip, toCity, toZip, date }) {
+    console.log(date);
     return db.execute(
-      'SELECT * FROM trips WHERE (from_city = ? OR from_zip = ?) AND (to_city = ? OR to_zip = ?) AND (date > ?)',
+      'SELECT * FROM trips WHERE (from_city = ? OR from_zip = ?) AND (to_city = ? OR to_zip = ?) AND (date >= ?) AND id_package IS NULL',
       [fromCity, fromZip, toCity, toZip, date]
     );
   }
   static async getTripById(id) {
-    const [rows] = await db.execute('SELECT * FROM trips WHERE id_trip = ?', [id]);
+    const [rows] = await db.execute('SELECT * FROM trips WHERE id_trip = ?', [
+      id,
+    ]);
     return rows[0];
+  }
+
+  static async getCurrentTrip(userId) {
+    const [
+      rows,
+    ] = await db.execute(
+      'SELECT * FROM trips WHERE id_carrier = ? AND date >= ?',
+      [userId, new Date().toISOString().split('T')[0]]
+    );
+    return rows[0];
+  }
+
+  static async getPrevTrips(userId) {
+    const [
+      prevTrips,
+    ] = await db.execute(
+      'SELECT trips.from_city, trips.to_city, trips.date, trips.price, users.first_name, users.last_name FROM trips JOIN users ON trips.id_sender = users.id_user WHERE trips.id_carrier = ? AND trips.date < ?',
+      [userId, new Date().toISOString().split('T')[0]]
+    );
+    return prevTrips;
+  }
+
+  static async setAcceptedPackage(tripId, packageId) {
+    const [
+      senders,
+    ] = await db.execute(
+      'SELECT id_sender FROM packages WHERE id_package = ?',
+      [packageId]
+    );
+    const senderId = senders[0].id_sender;
+    await db.execute(
+      'UPDATE trips SET id_package = ?, id_sender = ? WHERE id_trip = ?',
+      [packageId, senderId, tripId]
+    );
+    // Accept package
+    await db.execute('UPDATE packages SET status = 2 WHERE id_package = ?', [packageId]);
+    // Decline all other packages
+    await db.execute('UPDATE packages SET status = 3 WHERE id_trip = ? AND id_package <> ?', [tripId, packageId]);
   }
 };

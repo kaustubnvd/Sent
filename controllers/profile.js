@@ -1,5 +1,3 @@
 exports.getProfile = (req, res, next) => {
-  res.render('profile', {
-    user: null
-  });
+  res.render('profile');
 };

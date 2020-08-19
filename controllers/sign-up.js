@@ -10,5 +10,6 @@ exports.postSignUpPage = async (req, res, next) => {
   // Create an instance of the user model
   const user = new User({firstName, lastName, email, phoneNum: phoneNumber, password});
   await user.save(); // Saves in database
+  req.session.user = user;
   res.redirect('/'); 
 };

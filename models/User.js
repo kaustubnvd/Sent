@@ -1,13 +1,14 @@
 const db = require('../config/db');
 const bcrypt = require('bcryptjs');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = class User {
   constructor({ firstName, lastName, email, phoneNum, password = '' }) {
-    this.id = Math.random();
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.id_user = uuidv4();
+    this.first_name = firstName;
+    this.last_name = lastName;
     this.email = email;
-    this.phoneNum = phoneNum;
+    this.phone_num = phoneNum;
     this.password = bcrypt.hashSync(password, 12);
   }
 
@@ -16,11 +17,11 @@ module.exports = class User {
       const val = await db.execute(
         'INSERT INTO users(id_user, first_name, last_name, email, phone_num, password) VALUES(?, ?, ?, ?, ?, ?)',
         [
-          this.id,
-          this.firstName,
-          this.lastName,
+          this.id_user,
+          this.first_name,
+          this.last_name,
           this.email,
-          this.phoneNum,
+          this.phone_num,
           this.password,
         ]
       );
@@ -31,7 +32,16 @@ module.exports = class User {
   }
 
   static async getUserById(id) {
-    const [users] = await db.execute('SELECT * FROM users WHERE id_user = ?', [id]);
+    const [users] = await db.execute('SELECT * FROM users WHERE id_user = ?', [
+      id,
+    ]);
+    return users[0];
+  }
+
+  static async getUserByEmail(email) {
+    const [users] = await db.execute('SELECT * FROM users WHERE email = ?', [
+      email,
+    ]);
     return users[0];
   }
 };

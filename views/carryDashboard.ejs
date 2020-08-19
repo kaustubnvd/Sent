@@ -17,10 +17,10 @@
     <%- include('./includes/header'); -%>
 
     <!-- popup code -->
-    <%if(locals.offerName && locals.phoneNum && locals.carryEmail) { %>
+    <%if(locals.offerName && locals.phoneNum && locals.email) { %>
 
     <!-- <%- include('./includes/popup', { offerName: offerName, phoneNum: phoneNum,
-    carryEmail: carryEmail, }); -%> <% } %> 
+    email: email, }); -%> <% } %> 
     <!--note you have to rerender here because you need updated data-->
 
     <div class="bg-modal">
@@ -38,19 +38,19 @@
           </h2>
           <div id="popup-phone-number" class="flex">
             <i class="fas fa-phone"></i>
-            <p class="margin-left"><%=phoneNum%></p>
+            <p class="margin-left"></p>
           </div>
           <div id="popup-email" class="flex">
             <i class="fas fa-envelope-open-text"></i>
-            <p class="margin-left"><%=carryEmail%></p>
+            <p class="margin-left"></p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- varying dashboard states -->
-    <% if(!locals.fromCity && !locals.toCity) {%>
-
+    <!-- No Trips -->
+    <% if(!currentTrip) {%>
     <div class="no-offer">
       <h1 class="center more-margin-top">Start Your Trip</h1>
       <img src="./assets/images/to-the-moon.svg" alt="Start your trip" />
@@ -58,8 +58,8 @@
         <a href="/new-trip">New Trip <i class="fas fa-plus"></i></a>
       </div>
     </div>
-
-    <%} else if(!locals.offerName && !locals.potentialOffers) {%>
+    <!-- No Offers -->
+    <%} else if(currentOffers.length < 1) {%>
     <div class="receiver-title">
       <h1>No Current Offers</h1>
     </div>
@@ -78,31 +78,30 @@
     <section id="previous-trip" class="flex">
       <div class="direction-time">
         <div class="direction flex">
-          <h4><%= fromCity %></h4>
+          <h4><%= currentTrip.from_city %></h4>
           <i class="fas fa-long-arrow-alt-right"></i>
-          <h4><%= toCity%></h4>
+          <h4><%= currentTrip.to_city %></h4>
         </div>
 
-        <h5><%=tripDate%></h5>
+        <h5><%=formattedDate%></h5>
       </div>
       <div class="prev-sender">
         <h4>Max Size</h4>
-        <h5 class="more-margin-bot"><%=tripSize%></h5>
+        <h5 class="more-margin-bot"><%= currentTrip.size %></h5>
       </div>
       <div class="prev-price">
-        <h3 class="blue margin-top">$<%=tripPrice%></h3>
+        <h3 class="blue margin-top">$<%=currentTrip.price%></h3>
       </div>
     </section>
-    <!-- </section> -->
-
-    <%} else if(locals.potentialOffers && !locals.offerName) {%> <%for(let i =
-    0; i < potentialOffers.length; i++) { %>
+    <!-- Offers available but hasn't accepted any -->
+    <% } else if(currentOffers && !acceptedPackage) { %> 
+      <% for(let offer of currentOffers) { %>
     <section class="gray-box">
       <div id="offer-left">
         <img src="./assets/images/sent-team.png" alt="Receiver Image" />
         <div class="package-title margin-top">
-          <h2 class="title"><%=potentialOffers[i].pacakgeTitle%></h2>
-          <h2 class="offer-price">$<%=potentialOffers[i].price%></h2>
+          <h2 class="title"><%= offer.package_title %></h2>
+          <h2 class="offer-price">$<%= currentTrip.price %></h2>
         </div>
       </div>
       <div id="offer-right">
@@ -110,40 +109,47 @@
           Package Details
         </h4>
         <p class="package-information margin-bot">
-          <%=potentialOffers[i].packageDetail%>
+          <%= offer.package_desc %>
         </p>
         <h4 class="package-description margin-bot">
           Delivery Notes
         </h4>
         <p class="package-information margin-bot">
-          <%=potentialOffers[i].deliveryNotes%>
+          <%= offer.delivery_note %>
         </p>
         <div class="acceptance-btn">
-          <a class="button accept" id="modal-button" href="#">Accept</a>
-          <a class="button decline" href="#">Decline</a>
+          <form action='/carry-dashboard/accept' method="POST">
+              <input type="hidden" name="tripId" value="<%=currentTrip.id_trip%>"/>
+              <input type="hidden" name="packageId" value="<%=offer.id_package%>"/>
+              <button type="submit" class="button accept" id="modal-button">Accept</button>
+          </form>
+          <form action='/carry-dashboard/decline' method="POST">
+            <input type="hidden" name="packageId" value="<%=offer.id_package%>"/>
+            <button class="button decline">Decline</button>
+          </form>
         </div>
       </div>
     </section>
-    <% } %> <% } else { %>
+      <% } %> 
+    <% } else { %>
     <div class="receiver-title">
-      <h1>Current Offer - <%=offerName%></h1>
+      <h1>Current Delivery - <%=acceptedUser.first_name%> <%=acceptedUser.last_name%></h1>
     </div>
     <section class="gray-box">
       <div id="offer-left">
         <img src="./assets/images/sent-team.png" alt="Receiver Image" />
         <div id="title-cost" class="flex">
-          <h3 class="package-title package-description"><%=packageName%></h3>
-          <h3 class="package-cost">$<%=tripPrice%></h3>
+          <h3 class="package-title package-description"><%=acceptedPackage.package_title%></h3>
+          <h3 class="package-cost">$<%=currentTrip.price %></h3>
         </div>
         <div id="trip-locations" class="flex">
           <div class="trip-starting">
-            <p class="city"><%=fromCity%></p>
-            <p class="trip-time small-text"><%=tripTime%></p>
+            <p class="city"><%=currentTrip.from_city%></p>
           </div>
           <i class="fas fa-long-arrow-alt-right"></i>
           <div class="trip-ending">
-            <p class="city"><%=toCity%></p>
-            <p class="trip-time small-text"><%=tripDate%></p>
+            <p class="city"><%=currentTrip.to_city%></p>
+            <p class="trip-time small-text"><%=formattedDate%></p>
           </div>
         </div>
       </div>
@@ -152,77 +158,46 @@
           Package Details
         </h4>
         <p class="package-information margin-bot">
-          <%=packageDescription%>
+          <%=acceptedPackage.package_desc%>
         </p>
         <h4 class="package-description margin-bot">
           Delivery Notes
         </h4>
         <p class="package-information margin-bot">
-          <%=deliveryNotes%>
+          <%=acceptedPackage.delivery_note%>
         </p>
         <h4 class="package-description margin-bot">
           Contact Information
         </h4>
         <div class="phone-num flex margin-bot">
           <i class="fas fa-phone"></i>
-          <p id="full-number" class="margin-left"><%=phoneNum%></p>
+          <p id="full-number" class="margin-left"><%=acceptedUser.phone_num%></p>
         </div>
         <div class="email flex">
           <i class="fas fa-envelope-open-text"></i>
-          <p id="email" class="margin-left"><%=carryEmail%></p>
+          <p id="email" class="margin-left"><%=acceptedUser.email%></p>
         </div>
       </div>
     </section>
-    <%}%> <% if( locals.prevTrips.length > 0) { %>
+    <%}%> 
+    <% if( locals.prevTrips.length > 0) { %>
     <h2 class="previous-trip-header">Previous Trips</h2>
     <% } %> <% for(let trip of prevTrips) { %>
     <section id="previous-trip" class="flex">
-      <!-- <div class="shadow-trip-route">
-        <div class="previous-trip-route">
-          <h3 class="previous-trip-from">
-            <%=trip.prevFrom%>
-          </h3>
-          <i class="fas fa-long-arrow-alt-down"></i>
-          <i class="fas fa-long-arrow-alt-right hidden"></i>
-          <h3 class="previous-trip-to">
-            <%=trip.prevTo%>
-          </h3>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="prev-trip-infofirst prevtrip-margin-left">
-          <p class="prev-date bot-margin">
-            <strong>Date: </strong><%=trip.prevDate%>
-          </p>
-          <p class="prev-time bot-margin">
-            <strong>Time: </strong><%=trip.prevTime%>
-          </p>
-          <p class="prev-size"><strong>Size: </strong><%=trip.prevSize%></p>
-        </div>
-        <div class="prev-trip-infosecond prevtrip-margin-left">
-          <p class="prev-price bot-margin">
-            <strong>Asking Price: </strong>$<%=trip.prevPrice%>
-          </p>
-          <p class="prev-sender bot-margin">
-            <strong>Sender: </strong><%=trip.prevSender%>
-          </p>
-        </div>
-      </div> -->
-
       <div class="direction-time">
         <div class="direction flex">
-          <h4><%= trip.prevFrom %></h4>
+          <h4><%= trip.from_city %></h4>
           <i class="fas fa-long-arrow-alt-right"></i>
-          <h4><%=trip.prevTo%></h4>
+          <h4><%=trip.to_city%></h4>
         </div>
-        <h5><%=trip.prevDate%></h5>
+        <h5><%=trip.date%></h5>
       </div>
       <div class="prev-sender">
         <h4>Sender</h4>
-        <h5><%=trip.prevSender%></h5>
+        <h5><%=trip.first_name%> <%=trip.last_name%></h5>
       </div>
       <div class="prev-price">
-        <h3 class="blue margin-top">$<%=trip.prevPrice%></h3>
+        <h3 class="blue margin-top">$<%=trip.price%></h3>
       </div>
     </section>
     <% } %> <%- include('./includes/footer'); %>

@@ -9,7 +9,7 @@ exports.getNewTripForm = (req, res, next) => {
 
 exports.postNewTripForm = async (req, res, next) => {
   const { from, date, to, size, price } = req.body;
-  const trip = new Trip({ carrierId: '23', from, to, date, size, price });
+  const trip = new Trip({ carrierId: req.session.user.id_user, from, to, date, size, price });
   await trip.save();
   res.redirect('/carry-dashboard');
 };

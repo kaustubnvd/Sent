@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "askForPassword": true,
+      "database": "sentdb",
+      "driver": "MySQL",
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "name": "sentdb",
+      "port": 3306,
+      "previewLimit": 50,
+      "server": "sentdb.ce2jjjd4ielq.us-east-2.rds.amazonaws.com",
+      "username": "root"
+    }
+  ]
+}

@@ -1,65 +1,45 @@
-exports.getCarryDashboard = (req, res, next) => {
+const User = require('../models/User');
+const Trip = require('../models/Trip');
+const Package = require('../models/Package');
+const getFormattedDate = require('../util/date');
+
+
+exports.getCarryDashboard = async (req, res, next) => {
+  // Not logged in
+  if (!req.session.user) {
+    return res.redirect('/carrier-intro');
+  }
+  // TODO: Not be able to send request to oneself
+  const currentTrip = await Trip.getCurrentTrip(req.session.user.id_user);
+  console.log(currentTrip);
+  const currentOffers = await Package.getAllOffers(currentTrip ? currentTrip.id_trip : null);
+  const acceptedPackage = await Package.getPackageById(currentTrip ? currentTrip.id_package: null);
+  const acceptedUser = acceptedPackage ? await User.getUserById(acceptedPackage.id_sender) : null;
+  const prevTrips = await Trip.getPrevTrips(req.session.user.id_user);
+  prevTrips.forEach(trip => {
+    trip.date = getFormattedDate(trip.date);
+  });
+  console.log(prevTrips);
   res.render('carryDashboard', {
-    user: req.session.user && req.session.user.first_name,
-    // carrierName: 'Suket Shah',
-    // fromCity: 'Flower Mound, TX',
-    // toCity: 'Austin, TX',
-    tripDate: 'May 16, 2020',
-    tripTime: '11:30 AM',
-    tripSize: 'Fits in a trunk',
-    tripPrice: '23',
-    // offerName: 'Anthony Davis',
-    packageName: 'Chicken Biryani',
-    phoneNum: '214-425-0447',
-    email: 'suket.shah@yahoo.com',
-    packageDescription:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-    deliveryNotes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-    carryEmail: 'carrier.email@gmail.com',
-    prevTrips: [
-      {
-        prevFrom: 'Flomo',
-        prevTo: 'New York',
-        prevDate: 'May 16, 2019',
-        prevTime: '12:30 PM',
-        prevSize: 'Fits in Trunk',
-        prevPrice: '38',
-        prevSender: 'Suket Shah',
-      },
-      {
-        prevFrom: 'Austin',
-        prevTo: 'Dallas',
-        prevDate: 'May 16, 2019',
-        prevTime: '12:30 PM',
-        prevSize: 'Fits in Trunk',
-        prevPrice: '38',
-        prevSender: 'Suket Shah',
-      },
-    ],
-    potentialOffers: [
-      {
-        name: 'suket',
-        pacakgeTitle: 'Chicken Biryani',
-        price: '21',
-        packageDetail:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-        deliveryNotes:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-      },
-      {
-        name: 'john',
-        pacakgeTitle: 'Veg Biryani',
-        price: '20',
-        packageDetail:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-        deliveryNotes:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend venenatis quam, vel tincidunt augue facilisis vel. Morbi',
-      },
-    ],
+    currentTrip,
+    formattedDate: currentTrip ? getFormattedDate(currentTrip.date) : null,
+    currentOffers,
+    acceptedPackage,
+    acceptedUser,
+    prevTrips,
   });
 };
 
-// potentialOffers.forEach((val, ind) => {
-//   val.name;
-// });
+exports.acceptOffer = async (req, res, next) => {
+  const {tripId, packageId} = req.body;
+  // Change accepted enum
+  await Trip.setAcceptedPackage(tripId, packageId);
+  res.redirect('/carry-dashboard');
+};
+
+exports.declineOffer = async (req, res, next) => {
+  const {packageId} = req.body;
+  await Package.declinePackage(packageId);
+  res.redirect('/carry-dashboard');
+};
+

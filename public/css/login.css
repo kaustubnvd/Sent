@@ -75,7 +75,17 @@
   border-radius: 20px;
   outline: none;
   margin-top: 1.3em;
+  cursor: pointer;
 }
+
+.login-btn:hover {
+  background-color: #0f85bb;
+}
+
+.login-btn:active {
+  background-color: #0f72a0;
+}
+
 form p {
   color: var(--dark-sent-color);
   text-align: center;

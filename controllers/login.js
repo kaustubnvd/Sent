@@ -1,15 +1,23 @@
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 exports.getLoginPage = (req, res, next) => {
-  console.log(req.session.isLoggedIn);
   res.render('login');
 };
 
 exports.postLoginPage = async (req, res, next) => {
   // Check login details
-  const suket = await User.getUserById('23');
-  req.session.user = suket;
-  res.redirect('/');
+  const { email, password } = req.body;
+  const user = await User.getUserByEmail(email);
+  if (!user) {
+    return res.redirect('/login');
+  }
+  const match = await bcrypt.compare(password, user.password);
+  if (match) {
+    req.session.user = user;
+    return res.redirect('/');
+  }
+  res.redirect('/login');
 };
 
 exports.postLogout = (req, res, next) => {

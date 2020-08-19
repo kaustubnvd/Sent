@@ -1,4 +1,3 @@
 exports.getCarrierIntroPage = (req, res, next) => {
-    res.render('carrier-intro');
-  };
-  
+  res.render('carrier-intro');
+};

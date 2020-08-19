@@ -36,4 +36,28 @@ module.exports = class Package {
       console.log(err);
     }
   }
+  static async getPackageById(packageId) {
+    const [packages] = await db.execute('SELECT * FROM packages WHERE id_package = ?', [
+      packageId,
+    ]);
+    return packages[0];
+  }
+  static async getAllOffers(tripId) {
+    const [
+      offers,
+    ] = await db.execute('SELECT * FROM packages WHERE id_trip = ? AND status <> 3', [tripId]);
+    return offers;
+  }
+  static async declinePackage(packageId) {
+    await db.execute('UPDATE packages SET status = 3 WHERE id_package = ?', [packageId]);
+  }
+  static async isDuplicate(tripId, senderId) {
+    const [rows] = await db.execute('SELECT * FROM packages WHERE id_trip = ? AND id_sender = ?', [tripId, senderId]);
+    return rows.length > 0;
+  }
+
+  static async isIdiot(tripId, senderId) {
+    const [rows] = await db.execute('SELECT id_carrier FROM trips WHERE id_trip = ?', [tripId]);
+    return rows[0].id_carrier === senderId;
+  }
 };
