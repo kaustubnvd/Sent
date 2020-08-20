@@ -36,4 +36,9 @@ glob.sync('./routes/*.js').forEach((file) => {
   app.use(require(path.resolve(file)));
 });
 
+// 404 Catch all
+app.use((req, res, next) => {
+  res.status(404).render('404');
+});
+
 app.listen(PORT, () => console.log(`🚀 Server started in ${process.env.NODE_ENV} mode at http://${process.env.HOST}:${PORT}`));

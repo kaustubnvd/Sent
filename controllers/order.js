@@ -34,13 +34,13 @@ exports.makeOrder = async (req, res, next) => {
   if (isDuplicate || isIdiot) {
     return res.redirect('/');
   }
+  const imageURL = '/' + req.file.path;
   const package = new Package({
     tripId,
     packageTitle,
     packageDesc,
     deliveryNotes: packageNotes,
-    imageURL:
-      'https://images.unsplash.com/photo-1551825687-f9de1603ed8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    imageURL,
     senderId: req.session.user.id_user,
   });
   await package.save();

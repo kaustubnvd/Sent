@@ -9,7 +9,6 @@ exports.getCarryDashboard = async (req, res, next) => {
   if (!req.session.user) {
     return res.redirect('/carrier-intro');
   }
-  // TODO: Not be able to send request to oneself
   const currentTrip = await Trip.getCurrentTrip(req.session.user.id_user);
   console.log(currentTrip);
   const currentOffers = await Package.getAllOffers(currentTrip ? currentTrip.id_trip : null);

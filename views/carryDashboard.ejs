@@ -98,7 +98,7 @@
       <% for(let offer of currentOffers) { %>
     <section class="gray-box">
       <div id="offer-left">
-        <img src="./assets/images/sent-team.png" alt="Receiver Image" />
+        <img src="<%= offer.img_url %>" alt="Receiver Image" />
         <div class="package-title margin-top">
           <h2 class="title"><%= offer.package_title %></h2>
           <h2 class="offer-price">$<%= currentTrip.price %></h2>
@@ -137,7 +137,7 @@
     </div>
     <section class="gray-box">
       <div id="offer-left">
-        <img src="./assets/images/sent-team.png" alt="Receiver Image" />
+        <img src="<%= acceptedPackage.img_url %> " alt="Receiver Image" />
         <div id="title-cost" class="flex">
           <h3 class="package-title package-description"><%=acceptedPackage.package_title%></h3>
           <h3 class="package-cost">$<%=currentTrip.price %></h3>

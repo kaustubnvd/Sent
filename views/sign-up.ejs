@@ -9,16 +9,20 @@
   </head>
   <body>
     <main class="login">
-      <form action="/sign-up" method="POST" enctype="multipart/form-data">
-        <div class="logo">
-          <img src="./assets/logo/sent_logo.png" alt="" />
-          <div>
-            <h1>Sent.</h1>
-            <h2>Connecting Texas.</h2>
-          </div>
+      <div class="logo">
+        <img src="./assets/logo/sent_logo.png" alt="" />
+        <div>
+          <h1>Sent.</h1>
+          <h2>Connecting Texas.</h2>
         </div>
-        <h1 class="login-title">Sign Up Now</h1>
-
+      </div>
+      <h1 class="login-title">Sign Up Now</h1>
+      <% if (errors.length > 0) { %>
+         <% for (let error of errors) { %>
+            <h1><%= error.msg %> </h1>
+         <% } %>  
+      <% } %> 
+      <form action="/sign-up" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-input">
           <label for="first-name">First Name:</label>
           <input type="text" name="firstName" id="first-name" />
@@ -48,7 +52,7 @@
             <label for="confirm-password">Confirm Password:</label>
             <input
               type="password"
-              name="confirm-password"
+              name="confirmPassword"
               id="confirm-password"
             />
           </div>
@@ -57,11 +61,11 @@
         <div class="login-btns">
           <button type="submit" class="login-btn">Register</button>
         </div>
-        <p>
-          Already have an account?
-          <a class="switch" href="/login">Log in here.</a>
-        </p>
       </form>
+      <p>
+        Already have an account?
+        <a class="switch" href="/login">Log in here.</a>
+      </p>
       <img
         class="login-img"
         src="https://images.unsplash.com/photo-1517940539453-517b8afbe85e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"

@@ -61,7 +61,7 @@
       </div>
       <div id="send-form">
         <h1 class="submit-order">Delivery Request</h1>
-        <form action="/order" method="post">
+        <form action="/order" method="post" enctype="multipart/form-data">
           <div class="form-package-title form-control">
             <label for="package-title">Package Title:</label>
             <input
@@ -103,6 +103,19 @@
               autocomplete="off"
               class="gray-box"
             ></textarea>
+          </div>
+          <div class="form-package-image form-control">
+            <label for="package-image">Package Image:</label>
+            <input
+              required
+              autocomplete="off"
+              type="file"
+              name="image"
+              id="package-image"
+              maxlength="40"
+              class="gray-box"
+            />
+            <small>Please include package image</small>
           </div>
           <!-- <div class="form-email form-control">
             <label for="package-email">Email: </label>
