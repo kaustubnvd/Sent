@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Send Dashboard | Sent.</title>
+    <title><%= user.first_name %> | Send Dashboard</title>
+    <%- include('./includes/head.ejs') %>
     <link rel="stylesheet" href="./css/sendDashboard.css" />
-    <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
@@ -29,26 +29,25 @@
       <!-- regular state with multiple requests -->
       <%}else{%>
       <div class="requests-state">
-        <h1>Current Requests</h1>
-        <% for(let i = 0; i < locals.currentSends.length; i++) { %>
+        <h1>My Sends</h1>
+        <% for(let send of currentSends) { %>
         <section class="request">
           <h1>
-            <%=locals.currentSends[i].status%> -
-            <%=locals.currentSends[i].statusDate%>
+            <%=send.status%> -
           </h1>
           <div class="content">
             <div class="carrier-details">
-              <h2>$<%=locals.currentSends[i].carrier.price%></h2>
-              <h2>Carrier: <%=locals.currentSends[i].carrier.name%></h2>
-              <% if(locals.currentSends[i].status === 'Accepted'){ %>
+              <h2>$<%=send.carrier.price%></h2>
+              <h2>Carrier: <%=send.carrier.first_name%> <%=send.carrier.last_name%></h2>
+              <% if(send.status === 'Accepted'){ %>
               <div>
                 <p>
                   <i class="fa fa-phone fa-flip-horizontal"></i
-                  ><%=locals.currentSends[i].carrier.phoneNum%>
+                  ><%=send.carrier.phone_num%>
                 </p>
                 <p>
                   <i class="fa fa-envelope"></i
-                  ><%=locals.currentSends[i].carrier.email%>
+                  ><%=send.carrier.email%>
                 </p>
               </div>
               <% } else { %>
@@ -56,17 +55,16 @@
               <%}%>
             </div>
             <div class="package-details">
-              <h2><%=locals.currentSends[i].package.title%></h2>
-              <p><%=locals.currentSends[i].package.desc%></p>
+              <h2><%= send.package_title %></h2>
+              <p><%= send.package_desc %></p>
               <div class="direction-time">
                 <div class="direction flex">
-                  <h4><%= locals.currentSends[i].package.origin %></h4>
+                  <h4><%= send.carrier.from_city %></h4>
                   <i class="fas fa-long-arrow-alt-right"></i>
-                  <h4><%= locals.currentSends[i].package.dest %></h4>
+                  <h4><%= send.carrier.to_city %></h4>
                 </div>
                 <h5>
-                  <%= locals.currentSends[i].package.date %> @ <%=
-                  locals.currentSends[i].package.time %>
+                  <%= send.carrier.date %>
                 </h5>
               </div>
             </div>

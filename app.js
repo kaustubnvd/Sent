@@ -23,6 +23,7 @@ app.use(session({
 // app.use(csrf());
 
 app.use(express.static(path.resolve('public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {

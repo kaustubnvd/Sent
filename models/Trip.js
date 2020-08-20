@@ -99,4 +99,14 @@ module.exports = class Trip {
     // Decline all other packages
     await db.execute('UPDATE packages SET status = 3 WHERE id_trip = ? AND id_package <> ?', [tripId, packageId]);
   }
+  // Sender queries
+  static async getSendData(tripId) {
+    const [trips] = await db.execute('SELECT id_carrier FROM trips WHERE id_trip = ?', [tripId]);
+    const carrierId = trips[0].id_carrier;
+    console.log(carrierId);
+    const [rows] = await db.execute(
+      'SELECT trips.from_city, trips.to_city, trips.date, trips.price, users.first_name, users.last_name, users.email, users.phone_num FROM trips JOIN users ON trips.id_carrier = users.id_user WHERE users.id_user = ?', [carrierId]
+    );
+    return rows[0];
+  }
 };

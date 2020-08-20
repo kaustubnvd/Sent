@@ -9,7 +9,7 @@
   </head>
   <body>
     <main class="login">
-      <form action="/sign-up" method="POST">
+      <form action="/sign-up" method="POST" enctype="multipart/form-data">
         <div class="logo">
           <img src="./assets/logo/sent_logo.png" alt="" />
           <div>
@@ -34,6 +34,10 @@
         <div class="form-input">
           <label for="phone-number">Phone Number:</label>
           <input type="tel" name="phoneNumber" id="phone-number" />
+        </div>
+        <div class="form-input">
+          <label for="image">Profile Picture:</label>
+          <input type="file" name="image" id="image"/>
         </div>
         <div class="password-container">
           <div class="form-input">

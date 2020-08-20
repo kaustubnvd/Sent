@@ -14,12 +14,13 @@ exports.getSearch = (req, res, next) => {
         const [rows] = await Trip.getTripsSearch({fromCity, fromZip, toCity, toZip, date});
         let carriers = rows.map(async ({ id_trip, id_carrier, price, date }) => {
           const user = await User.getUserById(id_carrier);
-          const { first_name, last_name} = user;
+          const { first_name, last_name, img_url} = user;
           return {
             name: getFullName(first_name, last_name),
             date: formatDate(date),
             price,
             tripId: id_trip,
+            profilePic: img_url
           };
         });
         carriers = await Promise.all(carriers);

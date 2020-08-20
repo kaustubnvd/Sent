@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order</title>
+    <title>Trip Info | <%= carrierName %></title>
     <link rel="stylesheet" href="/css/order.css" >
     <%- include('./includes/head'); %>
     <link
@@ -21,7 +21,7 @@
       <div id="carrier-profile">
         <div class="carrier-img">
           <!--dynamic image loading here ?-->
-          <img src="/assets/images/sent-team.png" alt="carrier image" />
+          <img src="<%=profilePic%>" alt="carrierName" />
         </div>
         <div id="name-price">
           <div id="carrier-name-desc">
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div id="send-form">
-        <h1 class="submit-order">Submit Order</h1>
+        <h1 class="submit-order">Delivery Request</h1>
         <form action="/order" method="post">
           <div class="form-package-title form-control">
             <label for="package-title">Package Title:</label>
@@ -130,7 +130,7 @@
           </div> -->
           <div class="button">
             <!-- <a id="submit-order" href="#">Submit Order</a> -->
-            <button type="submit">Submit Order</button>
+            <button type="submit">Submit Request</button>
           </div>
           <input type="hidden" name="tripId" value="<%=tripId%>">
         </form>

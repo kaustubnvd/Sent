@@ -48,6 +48,10 @@ module.exports = class Package {
     ] = await db.execute('SELECT * FROM packages WHERE id_trip = ? AND status <> 3', [tripId]);
     return offers;
   }
+  static async getAllSends(senderId) {
+    const [sends] = await db.execute('SELECT * FROM packages WHERE id_sender = ?', [senderId]);
+    return sends;
+  }
   static async declinePackage(packageId) {
     await db.execute('UPDATE packages SET status = 3 WHERE id_package = ?', [packageId]);
   }

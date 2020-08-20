@@ -15,8 +15,8 @@
       <div class="bio">
         <div class="profile-main">
           <img
-            src="https://images.unsplash.com/photo-1551825687-f9de1603ed8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            alt="<%=user%>"
+            src="<%=user.img_url%>"
+            alt="<%=user.img_url%>"
           />
           <h2><%=user.first_name%> <%=user.last_name%></h2>
           <h3><%=user.email%></h3>
@@ -97,6 +97,6 @@
       </div>
     </div>
     <!-- Footer -->
-    <%- include('./includes/footer.ejs') %>
+    <!-- <%- include('./includes/footer.ejs') %> -->
   </body>
 </html>

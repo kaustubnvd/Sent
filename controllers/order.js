@@ -14,12 +14,12 @@ exports.getOrderPage = async (req, res, next) => {
     date,
     size,
   } = await Trip.getTripById(tripId);
-  const { first_name, last_name } = await User.getUserById(id_carrier);
+  const { first_name, last_name, img_url } = await User.getUserById(id_carrier);
   res.render('order', {
-    user: 'Avi',
     carrierName: getFullName(first_name, last_name),
     carrierDesc: size,
     carrierPrice: '$' + price,
+    profilePic: img_url,
     fromCity,
     toCity,
     leaveDate: formatDate(date),
@@ -44,5 +44,5 @@ exports.makeOrder = async (req, res, next) => {
     senderId: req.session.user.id_user,
   });
   await package.save();
-  return res.redirect('/');
+  return res.redirect('/send-dashboard');
 };

@@ -20,6 +20,7 @@
     "express-session": "^1.17.1",
     "glob": "^7.1.6",
     "moment": "^2.27.0",
+    "multer": "^1.4.2",
     "mysql2": "^2.1.0",
     "parse-address": "^1.1.2",
     "parse-address-string": "0.0.3",
