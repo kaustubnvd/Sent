@@ -20,7 +20,11 @@
         <h1 class="login-title">Sign Up Now</h1>
         <% if (errors.length > 0) { %>
            <% for (let error of errors) { %>
-              <h1><%= error.msg %> </h1>
+            <div class="error-container">
+              <div class="errors">
+                <div class="error"><%= error.msg %></div>
+              </div>
+            </div>
            <% } %>  
         <% } %> 
         <form action="/sign-up" method="POST" enctype="multipart/form-data" novalidate>
