@@ -18,7 +18,10 @@
   margin-bottom: 2em;
   color: #000;
 }
-
+.hero{
+  display: flex;
+  flex-direction: column;
+}
 .logo img {
   width: 75px;
   margin-right: 1.5em;
@@ -76,6 +79,30 @@
   outline: none;
   margin-top: 1.3em;
   cursor: pointer;
+  font-size: 1.2rem;
+}
+.hero a{
+  color: var(--light-sent-color );
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  justify-self: center;
+  width: 100%;
+}
+
+.errors {
+  text-align: center;
+  background: rgb(255, 176, 176);
+  border: 1px solid #F00;
+  padding: .5em;
+}
+
+.error {
+  color: rgb(121, 18, 18);
+  margin-bottom: .5em;
 }
 
 .login-btn:hover {
@@ -102,7 +129,7 @@ form .switch {
   background-color: var(--g-login-color);
   text-align: center;
   text-decoration: none;
-  padding: 0.8em 3em;
+  padding: 1em 3em .8em;
   font-weight: bold;
   color: #fff;
   border: 0px solid;
@@ -110,7 +137,9 @@ form .switch {
   outline: none;
   margin-top: 1.3em;
 }
-
+.logo h1{
+  font-size: 2rem;
+}
 @media (max-width: 1174px) {
   .login-img {
     display: none;

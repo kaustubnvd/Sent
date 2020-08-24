@@ -4,47 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/login.css" />
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Login | Sent.</title>
   </head>
   <body>
     <main class="login">
-      <a href="/">
-        <div class="logo">
-          <img src="./assets/logo/sent_logo.png" alt="" />
-          <div>
-            <h1>Sent.</h1>
-            <h2>Connecting Texas.</h2>
+      <section class="hero">
+        <a href="/">
+          <div class="logo">
+            <img src="./assets/logo/sent_logo.png" alt="" />
+            <div>
+              <h1>Sent.</h1>
+              <h2>Connecting Texas.</h2>
+            </div>
           </div>
-        </div>
         </a>
         <h1 class="login-title">Login now</h1>
         <% if (error) { %>
-          <h1> <%= error %> </h1>
-        <% } %>  
-      <form action="/login" method="POST">
-        <div class="form-input">
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" value="<%= email %>"/>
+        <div class="error-container">
+          <div class="errors">
+            <div class="error"><%= error %></div>
+          </div>
         </div>
-        <div class="form-input">
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password"/>
-        </div>
-        <div class="login-btns">
-          <button type="submit" class="login-btn">Login</button>
-          <a href="#" class="g-btn">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
-              alt="G-logo"
-              class="g-logo"
-            />
-          </a>
-        </div>
-      </form>
-      <p>
-        Don't have an account? <a class="switch" href="/sign-up">Sign up here.</a>
-      </p>
+        <% } %>
+        <form action="/login" method="POST">
+          <div class="form-input">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="<%= email %>" />
+          </div>
+          <div class="form-input">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="login-btns">
+            <button type="submit" class="login-btn">Login</button>
+            <a href="#" class="g-btn">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png"
+                alt="G-logo"
+                class="g-logo"
+              />
+            </a>
+          </div>
+        </form>
+        <p>
+          Don't have an account?
+          <a class="switch" href="/sign-up">Sign up here.</a>
+        </p>
+      </section>
       <img
         class="login-img"
         src="https://images.unsplash.com/photo-1517940539453-517b8afbe85e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
