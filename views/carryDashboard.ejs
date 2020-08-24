@@ -50,7 +50,7 @@
     <div class="no-offer">
       <h1 class="center more-margin-top">Start Your Trip</h1>
       <img src="./assets/images/to-the-moon.svg" alt="Start your trip" />
-      <div class="center button">
+      <div class="center button blue-hover">
         <a href="/new-trip">New Trip <i class="fas fa-plus"></i></a>
       </div>
     </div>
@@ -62,7 +62,7 @@
     <!-- <section id="current-trip"> -->
     <div class="no-offer">
       <img
-        src="./assets/images/waiting-undraw.svg"
+        src="./assets/images/undraw_reading_time_gvg0.svg"
         alt="No Current Offers Image"
       />
       <p class="no-offer-text">
@@ -90,11 +90,15 @@
       </div>
     </section>
     <!-- Offers available but hasn't accepted any -->
-    <% } else if(currentOffers && !acceptedPackage) { %> 
-      <% for(let offer of currentOffers) { %>
+    <% } else if(currentOffers && !acceptedPackage) { %> <% for(let offer of
+    currentOffers) { %>
     <section class="gray-box">
       <div id="offer-left">
-        <img src="<%= offer.img_url %>" alt="Receiver Image" />
+        <img
+          class="center-img"
+          src="<%= offer.img_url %>"
+          alt="Receiver Image"
+        />
         <div class="package-title margin-top">
           <h2 class="title"><%= offer.package_title %></h2>
           <h2 class="offer-price">$<%= currentTrip.price %></h2>
@@ -113,29 +117,49 @@
         <p class="package-information margin-bot">
           <%= offer.delivery_note %>
         </p>
-        <div class="acceptance-btn">
-          <form action='/carry-dashboard/accept' method="POST">
-              <input type="hidden" name="tripId" value="<%=currentTrip.id_trip%>"/>
-              <input type="hidden" name="packageId" value="<%=offer.id_package%>"/>
-              <button type="submit" class="button accept" id="modal-button">Accept</button>
+
+        <!--TODO need to get these buttons to line up to bottom of div-->
+        <div class="acceptance-btn flex">
+          <form action="/carry-dashboard/accept" method="POST">
+            <input
+              type="hidden"
+              name="tripId"
+              value="<%=currentTrip.id_trip%>"
+            />
+            <input
+              type="hidden"
+              name="packageId"
+              value="<%=offer.id_package%>"
+            />
+            <button type="submit" class="button accept" id="modal-button">
+              Accept
+            </button>
           </form>
-          <form action='/carry-dashboard/decline' method="POST">
-            <input type="hidden" name="packageId" value="<%=offer.id_package%>"/>
+          <form action="/carry-dashboard/decline" method="POST">
+            <input
+              type="hidden"
+              name="packageId"
+              value="<%=offer.id_package%>"
+            />
             <button class="button decline">Decline</button>
           </form>
         </div>
       </div>
     </section>
-      <% } %> 
-    <% } else { %>
+    <% } %> <% } else { %>
     <div class="receiver-title">
-      <h1>Current Delivery - <%=acceptedUser.first_name%> <%=acceptedUser.last_name%></h1>
+      <h1>
+        Current Delivery - <%=acceptedUser.first_name%>
+        <%=acceptedUser.last_name%>
+      </h1>
     </div>
     <section class="gray-box">
       <div id="offer-left">
         <img src="<%= acceptedPackage.img_url %> " alt="Receiver Image" />
         <div id="title-cost" class="flex">
-          <h3 class="package-title package-description"><%=acceptedPackage.package_title%></h3>
+          <h3 class="package-title package-description">
+            <%=acceptedPackage.package_title%>
+          </h3>
           <h3 class="package-cost">$<%=currentTrip.price %></h3>
         </div>
         <div id="trip-locations" class="flex">
@@ -167,7 +191,9 @@
         </h4>
         <div class="phone-num flex margin-bot">
           <i class="fas fa-phone"></i>
-          <p id="full-number" class="margin-left"><%=acceptedUser.phone_num%></p>
+          <p id="full-number" class="margin-left">
+            <%=acceptedUser.phone_num%>
+          </p>
         </div>
         <div class="email flex">
           <i class="fas fa-envelope-open-text"></i>
@@ -175,8 +201,7 @@
         </div>
       </div>
     </section>
-    <%}%> 
-    <% if( locals.prevTrips.length > 0) { %>
+    <%}%> <% if( locals.prevTrips.length > 0) { %>
     <h2 class="previous-trip-header">Previous Trips</h2>
     <% } %> <% for(let trip of prevTrips) { %>
     <section id="previous-trip" class="flex">

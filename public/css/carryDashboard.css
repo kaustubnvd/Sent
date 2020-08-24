@@ -48,7 +48,7 @@
 }
 
 #offer-left {
-  width: 100%;
+  width: 60%;
 }
 
 #offer-left img {
@@ -168,18 +168,36 @@
 }
 
 .acceptance-btn {
-  margin-top: 15px;
+  margin-bottom: -30px;
+  position: absolute;
+  bottom: 0;
 }
 
 .accept {
   margin-right: 15px;
 }
 
+#offer-right {
+  position: relative;
+}
+
 .button:hover {
   background-color: #ffffff;
-  color: #1c5d99;
+  color: #1c5d99 !important;
   transition: 0.4s;
   border: #1c5d99 1px solid;
+}
+.hover-color:hover {
+  color: #1c5d99;
+}
+
+.button a {
+  width: max-content;
+  height: max-content;
+}
+
+.button a:hover {
+  color: #1c5d99;
 }
 
 .decline:hover {
@@ -195,6 +213,10 @@
   margin-top: 1.5rem;
 }
 
+.center-img {
+  object-fit: none;
+  object-position: 20% center;
+}
 /* #previous-trip {
   
 } */
@@ -300,8 +322,12 @@
 
 @media (max-width: 1100px) {
   #offer-left img {
-    width: 100%;
+    width: 165%;
     margin: 0;
+  }
+
+  #offer-right {
+    width: 70vw;
   }
   .gray-box {
     display: block;
@@ -311,10 +337,12 @@
   #title-cost {
     margin-right: 5%;
     margin-bottom: 10px;
+    width: 160%;
   }
   #trip-locations {
     margin-right: 5%;
     margin-bottom: 10px;
+    width: 160%;
   }
   #previous-trip {
     margin: 2rem 10vw;
@@ -322,6 +350,7 @@
   }
   .package-title {
     margin-right: 0;
+    width: 165%;
   }
 
   .acceptance-btn {
@@ -339,6 +368,10 @@
 
   .modal-contents {
     width: 90vw;
+  }
+
+  .acceptance-btn {
+    position: relative;
   }
 }
 
