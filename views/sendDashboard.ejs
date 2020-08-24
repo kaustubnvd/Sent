@@ -68,7 +68,9 @@
                 <p><i class="fa fa-envelope"></i><%=send.carrier.email%></p>
               </div>
               <% } else if(send.status === 'Pending') { %>
-              <button id="cancel-request">Cancel Request</button>
+              <form method="POST" action="/send-dashboard/delete/<%= send.id_package%>">
+                <button id="cancel-request">Cancel Request</button>
+              </form>
               <%}%>
             </div>
             <div class="package-details">

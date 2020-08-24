@@ -16,3 +16,9 @@ exports.getSendDashboard = async (req, res, next) => {
     modal: req.flash('modal'),
   });
 };
+
+exports.cancelRequest = async(req, res, next) =>{
+  const {packageId} = req.params;
+  await Package.cancelRequest(packageId);
+  res.redirect('/send-dashboard');
+};

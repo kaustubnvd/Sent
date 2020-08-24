@@ -55,9 +55,13 @@
   outline: none;
   border-radius: 5px;
   margin-top: 1em;
-}
-.carrier-details button :hover{
   cursor: pointer;
+}
+.carrier-details button:hover{
+  background-color: #9b3939;
+}
+.carrier-details button:active{
+  background-color: #702828;
 }
 .carrier-details h2 {
   margin-bottom: 0.2em;

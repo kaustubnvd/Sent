@@ -10,7 +10,6 @@ exports.getCarryDashboard = async (req, res, next) => {
     return res.redirect('/carrier-intro');
   }
   const currentTrip = await Trip.getCurrentTrip(req.session.user.id_user);
-  console.log(currentTrip);
   const currentOffers = await Package.getAllOffers(
     currentTrip ? currentTrip.id_trip : null
   );
@@ -24,7 +23,6 @@ exports.getCarryDashboard = async (req, res, next) => {
   prevTrips.forEach((trip) => {
     trip.date = getFormattedDate(trip.date);
   });
-
   res.render('carryDashboard', {
     currentTrip,
     formattedDate: currentTrip ? getFormattedDate(currentTrip.date) : null,
@@ -55,7 +53,6 @@ exports.acceptOffer = async (req, res, next) => {
     });
     res.redirect('/carry-dashboard');
   } catch (err) {
-    console.log(err);
     return next(err);
   }
 };

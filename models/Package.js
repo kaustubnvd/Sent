@@ -33,7 +33,6 @@ module.exports = class Package {
         ]
       );
     } catch (err) {
-      console.log(err);
     }
   }
   static async getPackageById(packageId) {
@@ -69,5 +68,9 @@ module.exports = class Package {
   static async isIdiot(tripId, senderId) {
     const [rows] = await db.execute('SELECT id_carrier FROM trips WHERE id_trip = ?', [tripId]);
     return rows[0].id_carrier === senderId;
+  }
+
+  static async cancelRequest(packageId){
+    await db.execute('DELETE FROM packages WHERE id_package = ?', [packageId]);
   }
 };

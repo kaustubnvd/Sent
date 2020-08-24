@@ -34,7 +34,6 @@ module.exports = class User {
           this.img_url,
         ]
       );
-      console.log(val);
     } catch (err) {
       console.log(err);
     }
