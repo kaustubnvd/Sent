@@ -12,9 +12,27 @@
       integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/modal.css" />
   </head>
   <body>
-    <%- include('./includes/header'); -%>
+    <% if(modal.length > 0) { %>
+    <div class="bg-modal">
+      <div class="modal-contents">
+        <div class="close">+</div>
+        <h1 class="popup-title">
+          🎉 Congratulations!
+        </h1>
+        <p class="acceptance">
+          You have successfully submitted an order
+        </p>
+        <div class="popup-contact">
+          <h2 class="contact-title light">
+            You will receive an email once your package has been accepted
+          </h2>
+        </div>
+      </div>
+    </div>
+    <% } %> <%- include('./includes/header'); -%>
     <main class="send-dashboard">
       <!-- no sends state -->
       <% if(locals.currentSends.length === 0) {%>
@@ -74,4 +92,5 @@
       <%}%>
     </main>
   </body>
+  <script src="/js/popupModal.js"></script>
 </html>

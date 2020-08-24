@@ -29,8 +29,11 @@ exports.getOrderPage = async (req, res, next) => {
 
 exports.makeOrder = async (req, res, next) => {
   const { packageTitle, packageDesc, packageNotes, tripId } = req.body;
-  const isDuplicate = await Package.isDuplicate(tripId, req.session.user.id_user);
-  const isIdiot= await Package.isIdiot(tripId, req.session.user.id_user);
+  const isDuplicate = await Package.isDuplicate(
+    tripId,
+    req.session.user.id_user
+  );
+  const isIdiot = await Package.isIdiot(tripId, req.session.user.id_user);
   if (isDuplicate || isIdiot) {
     return res.redirect('/');
   }
@@ -44,5 +47,6 @@ exports.makeOrder = async (req, res, next) => {
     senderId: req.session.user.id_user,
   });
   await package.save();
+  req.flash('modal', 'package requested');
   return res.redirect('/send-dashboard');
 };

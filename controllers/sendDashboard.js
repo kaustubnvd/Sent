@@ -13,5 +13,6 @@ exports.getSendDashboard = async (req, res, next) => {
   sends = await Promise.all(sends);
   res.render('sendDashboard', {
     currentSends: sends,
+    modal: req.flash('modal'),
   });
 };
