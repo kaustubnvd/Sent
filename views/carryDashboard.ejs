@@ -17,12 +17,12 @@
     <%- include('./includes/header'); -%>
 
     <!--note you have to rerender here because you need updated data-->
-    <% if (locals.modal.length > 0) { %> 
+    <% if(modal.length > 0) {%>
     <div class="bg-modal">
-      <div class="modal-contents" tabindex="-1">
+      <div class="modal-contents">
         <div class="close">+</div>
         <h1 class="popup-title">
-          🎉 <%= modal[0] %>
+          🎉 Congratulations!
         </h1>
         <p class="acceptance">
           You have successfully matched with a carrier
@@ -33,16 +33,16 @@
           </h2>
           <div id="popup-phone-number" class="flex">
             <i class="fas fa-phone"></i>
-            <p class="margin-left"></p>
+            <p class="margin-left">acceptedUser.phone_num</p>
           </div>
           <div id="popup-email" class="flex">
             <i class="fas fa-envelope-open-text"></i>
-            <p class="margin-left"></p>
+            <p class="margin-left">acceptedUser.email</p>
           </div>
         </div>
       </div>
     </div>
-  <% } %>
+    <% } %>
 
     <!-- varying dashboard states -->
     <!-- No Trips -->
@@ -50,8 +50,11 @@
     <div class="no-offer">
       <h1 class="center more-margin-top">Start Your Trip</h1>
       <img src="./assets/images/to-the-moon.svg" alt="Start your trip" />
-      <div class="center button blue-hover">
-        <a href="/new-trip">New Trip <i class="fas fa-plus"></i></a>
+      <div class="center new-trip">
+        <a href="/new-trip" class="button">New Trip <i class="fas fa-plus"></i></a>
+      </div>
+      <div class="center link">
+        <a href="/carrier-intro" id="a-tag-id">New to Carrying? Click to learn!</i></a>
       </div>
     </div>
     <!-- No Offers -->

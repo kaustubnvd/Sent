@@ -24,7 +24,7 @@ exports.getCarryDashboard = async (req, res, next) => {
   prevTrips.forEach((trip) => {
     trip.date = getFormattedDate(trip.date);
   });
-  console.log(prevTrips);
+
   res.render('carryDashboard', {
     currentTrip,
     formattedDate: currentTrip ? getFormattedDate(currentTrip.date) : null,

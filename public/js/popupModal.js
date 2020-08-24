@@ -1,12 +1,18 @@
-document.getElementById('modal-button').addEventListener('click', () => {
-  document.querySelector('.bg-modal').style.display = 'flex';
-  document.querySelector('.modal-contents').focus();
+const bgModal = document.querySelector('.bg-modal');
+
+document.querySelector('.close')?.addEventListener('click', () => {
+  bgModal.style.display = 'none';
 });
 
-document.querySelector('.close').addEventListener('click', () => {
-  document.querySelector('.bg-modal').style.display = 'none';
+document.querySelector('.modal-contents')?.addEventListener('blur', () => {
+  bgModal.style.display = 'none';
 });
 
-document.querySelector('.modal-contents').addEventListener('blur', () => {
-  document.querySelector('.bg-modal').style.display = 'none';
+document.querySelector('body')?.addEventListener('click', (e) => {
+  if (
+    document.querySelector('.modal-contents') &&
+    e.target.firstElementChild === document.querySelector('.modal-contents')
+  ) {
+    bgModal.style.display = 'none';
+  }
 });
