@@ -15,24 +15,24 @@
     <main>
       <h2 class="center-text">
         Showing Results For:
-        <h3 class="center-text">
-          <%=fromAddress%>
+        <div class="center-text flex flex-center">
+          <h4>
+            <%=fromAddress%>
+          </h4>
           <img
             class="long-arrow"
             src="./assets/icons/long-arrow.svg"
             alt="Long Arrow"
-          /><%=toAddress%>
-        </h3>
+          />
+          <h4><%=toAddress%></h4>
+        </div>
       </h2>
       <% if (carriers.length > 0) { %>
       <div class="search-results">
         <% for (let carrier of carriers) { %>
         <div class="search-item">
           <a href="/trip/<%=carrier.tripId%>">
-            <img
-              src="<%=carrier.profilePic%>"
-              alt="<%=carrier.name%>"
-            />
+            <img src="<%=carrier.profilePic%>" alt="<%=carrier.name%>" />
           </a>
           <div class="search-item-info flex space-between">
             <div>

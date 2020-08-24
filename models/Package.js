@@ -42,6 +42,12 @@ module.exports = class Package {
     ]);
     return packages[0];
   }
+  static async getSenderByPackage(packageId) {
+    const [packages] = await db.execute('SELECT id_sender FROM packages WHERE id_package = ?', [packageId]);
+    const senderId = packages[0].id_sender;
+    const [senders] = await db.execute('SELECT * FROM users WHERE id_user = ?', [senderId]);
+    return senders[0];
+  }
   static async getAllOffers(tripId) {
     const [
       offers,

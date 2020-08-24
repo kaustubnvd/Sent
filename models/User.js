@@ -3,7 +3,14 @@ const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 
 module.exports = class User {
-  constructor({ firstName, lastName, email, phoneNum, password = '', imageURL}) {
+  constructor({
+    firstName,
+    lastName,
+    email,
+    phoneNum,
+    password = '',
+    imageURL,
+  }) {
     this.id_user = uuidv4();
     this.first_name = firstName;
     this.last_name = lastName;
@@ -24,7 +31,7 @@ module.exports = class User {
           this.email,
           this.phone_num,
           this.password,
-          this.imageURL,
+          this.img_url,
         ]
       );
       console.log(val);
@@ -45,5 +52,22 @@ module.exports = class User {
       email,
     ]);
     return users[0];
+  }
+
+  static updateUserDetails(
+    { firstName, lastName, emailAddress, phoneNumber },
+    userId
+  ) {
+    return db.execute(
+      'UPDATE users SET first_name = ?, last_name = ?, email = ?, phone_num = ? WHERE id_user = ?',
+      [firstName, lastName, emailAddress, phoneNumber, userId]
+    );
+  }
+
+  static updateImgUrl(url, userId) {
+    return db.execute('UPDATE users SET img_url = ? WHERE id_user = ?', [
+      url,
+      userId,
+    ]);
   }
 };

@@ -9,8 +9,7 @@
   </head>
   <body>
     <main class="login">
-      <form action="/login" method="POST">
-        <a href="/">
+      <a href="/">
         <div class="logo">
           <img src="./assets/logo/sent_logo.png" alt="" />
           <div>
@@ -20,13 +19,17 @@
         </div>
         </a>
         <h1 class="login-title">Login now</h1>
+        <% if (error) { %>
+          <h1> <%= error %> </h1>
+        <% } %>  
+      <form action="/login" method="POST">
         <div class="form-input">
           <label for="email">Email:</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" value="<%= email %>"/>
         </div>
         <div class="form-input">
           <label for="password">Password:</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password"/>
         </div>
         <div class="login-btns">
           <button type="submit" class="login-btn">Login</button>
@@ -38,10 +41,10 @@
             />
           </a>
         </div>
-        <p>
-          Don't have an account? <a class="switch" href="/sign-up">Sign up here.</a>
-        </p>
       </form>
+      <p>
+        Don't have an account? <a class="switch" href="/sign-up">Sign up here.</a>
+      </p>
       <img
         class="login-img"
         src="https://images.unsplash.com/photo-1517940539453-517b8afbe85e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"

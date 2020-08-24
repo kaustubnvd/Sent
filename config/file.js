@@ -1,5 +1,4 @@
 const multer = require('multer');
-const { validationResult } = require('express-validator');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

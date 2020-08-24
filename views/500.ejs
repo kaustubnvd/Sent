@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>500 - Internal Server Error</title>
+    <%- include('./includes/head'); %>
+    <style>
+      img {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./includes/header'); -%>
+    <h1 style="text-align: center;">Oops, an error occured</h1>
+    <p>We are working on it! Sorry for the inconvenience.</p>
+    <img src="/assets/images/500.png" alt="500" />
+  </body>
+</html>

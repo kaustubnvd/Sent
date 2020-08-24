@@ -30,6 +30,10 @@
   padding-bottom: 0.5em;
 }
 
+.profile-main form {
+  display: none;
+}
+
 .bio h2 {
   margin-top: 0.5em;
 }
@@ -83,12 +87,16 @@
   margin-top: 0.5em;
   overflow: hidden;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.bio img:hover {
+  opacity: 80%;
 }
 
 .profile-details {
   margin-top: 1em;
   width: 50%;
-  height: 410px;
   background-color: rgb(237, 240, 243);
 }
 
@@ -99,7 +107,7 @@
 }
 
 .profile-form {
-  margin-top: 1.5em;
+  margin-top: 0em;
 }
 
 .profile-form label {
@@ -116,7 +124,7 @@
   outline: none;
 }
 
-.profile-form button {
+.profile-btn {
   border: none;
   border-radius: 5px;
   background-color: #169bd7;
@@ -130,9 +138,21 @@
   margin-top: 0.5em;
   padding: 0.5em 3em;
 }
+.profile-btn:disabled {
+  background-color:#707070;
+  pointer-events: none;
+}
+
+.profile-btn:hover {
+  background-color: #1385b9;
+}
+.profile-btn:active {
+  background-color: #11719e;
+}
+
 
 .form-control-btn {
-  margin-top: 2em;
+  margin: 2em 0em;
   display: flex;
   justify-content: center;
 }
@@ -150,6 +170,24 @@
 .profile-contact-info {
   display: flex;
   justify-content: space-evenly;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  margin-top: .5em;
+}
+
+.errors {
+  text-align: center;
+  background: rgb(255, 176, 176);
+  border: 1px solid #F00;
+  padding: .5em;
+}
+
+.error {
+  color: rgb(121, 18, 18);
+  margin-bottom: .5em;
 }
 
 @media (max-width: 992px) {

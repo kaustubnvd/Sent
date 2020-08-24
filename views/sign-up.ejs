@@ -10,7 +10,7 @@
   <body>
     <main class="login">
       <div class="logo">
-        <img src="./assets/logo/sent_logo.png" alt="" />
+        <img src="./assets/logo/sent_logo.png" alt=""/>
         <div>
           <h1>Sent.</h1>
           <h2>Connecting Texas.</h2>
@@ -25,19 +25,19 @@
       <form action="/sign-up" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-input">
           <label for="first-name">First Name:</label>
-          <input type="text" name="firstName" id="first-name" />
+          <input type="text" name="firstName" id="first-name" value="<%= firstName %>"/>
         </div>
         <div class="form-input">
           <label for="last-name">Last Name:</label>
-          <input type="text" name="lastName" id="last-name" />
+          <input type="text" name="lastName" id="last-name" value="<%= lastName %>"/>
         </div>
         <div class="form-input">
           <label for="email">Email:</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" value="<%= email %>"/>
         </div>
         <div class="form-input">
           <label for="phone-number">Phone Number:</label>
-          <input type="tel" name="phoneNumber" id="phone-number" />
+          <input type="tel" name="phoneNumber" id="phone-number" value="<%= phoneNumber %>"/>
         </div>
         <div class="form-input">
           <label for="image">Profile Picture:</label>

@@ -250,7 +250,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  display: none;
+  /* display: block; */
   justify-content: center;
   align-items: center;
   z-index: 1000;

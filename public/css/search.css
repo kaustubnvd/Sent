@@ -48,6 +48,7 @@ main svg {
 }
 
 .long-arrow {
+  margin: 0em .75em; 
   width: 40px;
 }
 
