@@ -97,6 +97,7 @@
 
 .previous-trip-header {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .previous-trip-route {
@@ -159,7 +160,7 @@
   border-radius: 5px;
   margin: 2rem auto;
   white-space: nowrap;
-
+  border: none;
   cursor: pointer;
 }
 
