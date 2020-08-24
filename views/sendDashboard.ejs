@@ -14,7 +14,7 @@
     />
   </head>
   <body>
-    <%- include('./includes/header'); -%> 
+    <%- include('./includes/header'); -%>
     <main class="send-dashboard">
       <!-- no sends state -->
       <% if(locals.currentSends.length === 0) {%>
@@ -33,25 +33,24 @@
         <% for(let send of currentSends) { %>
         <section class="request">
           <h1>
-            <%=send.status%> -
+            <%=send.status%> - $<%=send.carrier.price%>
           </h1>
           <div class="content">
             <div class="carrier-details">
-              <h2>$<%=send.carrier.price%></h2>
-              <h2>Carrier: <%=send.carrier.first_name%> <%=send.carrier.last_name%></h2>
+              <h2>
+                Carrier: <%=send.carrier.first_name%>
+                <%=send.carrier.last_name%>
+              </h2>
               <% if(send.status === 'Accepted'){ %>
               <div>
                 <p>
                   <i class="fa fa-phone fa-flip-horizontal"></i
                   ><%=send.carrier.phone_num%>
                 </p>
-                <p>
-                  <i class="fa fa-envelope"></i
-                  ><%=send.carrier.email%>
-                </p>
+                <p><i class="fa fa-envelope"></i><%=send.carrier.email%></p>
               </div>
-              <% } else { %>
-              <a href="#">Cancel Request</a>
+              <% } else if(send.status === 'Pending') { %>
+              <button id="cancel-request">Cancel Request</button>
               <%}%>
             </div>
             <div class="package-details">
