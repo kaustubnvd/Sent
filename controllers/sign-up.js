@@ -42,6 +42,7 @@ exports.postSignUpPage = async (req, res, next) => {
     password,
     img_url: imageURL,
   });
+  console.log(user);
   await user.save(); // Saves in database
   req.session.user = user;
   res.redirect('/');

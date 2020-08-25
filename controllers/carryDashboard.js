@@ -19,6 +19,7 @@ exports.getCarryDashboard = async (req, res, next) => {
   const acceptedUser = acceptedPackage
     ? await User.getUserById(acceptedPackage.id_sender)
     : null;
+  console.log(acceptedUser);
   const prevTrips = await Trip.getPrevTrips(req.session.user.id_user);
   prevTrips.forEach((trip) => {
     trip.date = getFormattedDate(trip.date);
@@ -53,6 +54,7 @@ exports.acceptOffer = async (req, res, next) => {
     });
     res.redirect('/carry-dashboard');
   } catch (err) {
+    console.log(err);
     return next(err);
   }
 };

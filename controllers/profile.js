@@ -2,6 +2,7 @@ const User = require('../models/User');
 const Package = require('../models/Package');
 const { validationResult } = require('express-validator');
 
+let cache;
 exports.getProfile = async (req, res, next) => {
   const sends = await Package.getPackagesSent(req.session.user.id_user);
   const carries = await Package.getPackagesCarried(req.session.user.id_user);
@@ -9,6 +10,9 @@ exports.getProfile = async (req, res, next) => {
     sum += curr.price;
     return sum;
   }, 0);
+  if (!cache) {
+    cache = [sends, carries, earnings];
+  }
   res.render('profile', {
     errors: [],
     sends,
@@ -30,11 +34,13 @@ exports.uploadProfilePic = async (req, res, next) => {
 exports.updateUser = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    const [sends, carries, earnings] = cache;
     return res.status(422).render('profile', {
       errors: errors.array(),
+      sends,
+      carries: carries.length,
+      earnings,
     });
   }
-  await User.updateUserDetails(req.body, req.session.user.id_user);
-  req.session.user = await User.getUserById(req.session.user.id_user);
   res.redirect('/profile');
 };

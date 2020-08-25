@@ -32,7 +32,9 @@ module.exports = class Package {
           this.tripId,
         ]
       );
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }
   static async getPackageById(packageId) {
     const [

@@ -9,7 +9,7 @@ module.exports = class User {
     email,
     phoneNum,
     password = '',
-    imageURL,
+    img_url,
   }) {
     this.id_user = uuidv4();
     this.first_name = firstName;
@@ -17,7 +17,7 @@ module.exports = class User {
     this.email = email;
     this.phone_num = phoneNum;
     this.password = bcrypt.hashSync(password, 12);
-    this.imageURL = imageURL;
+    this.img_url = img_url;
   }
 
   async save() {

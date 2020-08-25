@@ -4,7 +4,7 @@ const glob = require('glob');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const flash = require('connect-flash');
-const csrf = require('csurf');
+const compression = require('compression');
 
 const path = require('path');
 
@@ -12,6 +12,8 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(compression());
 
 app.use(express.static(path.resolve('public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -38,13 +40,10 @@ app.use(
 
 app.use(flash());
 
-// app.use(csrf());
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
-  // res.locals.csrfToken = req.csrfToken();
   next();
 });
 
@@ -59,6 +58,7 @@ app.use((req, res, next) => {
 
 // 500 Catch All
 app.use((error, req, res, next) => {
+  console.log(error);
   res.status(500).render('500');
 });
 
